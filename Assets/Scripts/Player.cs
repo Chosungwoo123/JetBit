@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float rotSpeed;
     public float moveSpeed;
+    public ParticleSystem particle;
 
     private Rigidbody2D rigid;
 
@@ -36,6 +37,13 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             rigid.velocity = transform.up * moveSpeed;
+            particle.Play();
+            return;
+        }
+        else
+        {
+            particle.Stop();
+            return;
         }
     }
 }
