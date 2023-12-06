@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
     private void DashUpdate()
     {
-        if (Input.GetMouseButtonDown(1) && dashTimer >= dashCoolTime)
+        if (Input.GetMouseButtonDown(1) && dashTimer >= dashCoolTime && !isDashing)
         {
             StartCoroutine(DashRoutine());
         }
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
         isDashing = true;
         Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
 
-        GameManager.Instance.CameraShake(20, 0.2f);
+        GameManager.Instance.CameraShake(20, 0.3f);
         GameManager.Instance.ShowEffectImage(0.1f, 0.5f);
 
         rigid.AddForce(transform.up * dashPower, ForceMode2D.Impulse);
