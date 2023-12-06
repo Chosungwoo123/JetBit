@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 367023363}
   - component: {fileID: 367023364}
+  - component: {fileID: 367023365}
   m_Layer: 0
   m_Name: cloud_lonely
   m_TagString: Untagged
@@ -409,12 +410,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &367023365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367023362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.9
+  cam: {fileID: 519420028}
 --- !u!1 &446905729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,6 +5662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888462874}
   - component: {fileID: 888462875}
+  - component: {fileID: 888462876}
   m_Layer: 0
   m_Name: clouds_bg
   m_TagString: Untagged
@@ -5715,12 +5731,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &888462876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888462873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.8
+  cam: {fileID: 519420028}
 --- !u!1 &1001260018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5837,6 +5867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349214059}
   - component: {fileID: 1349214060}
+  - component: {fileID: 1349214061}
   m_Layer: 0
   m_Name: clouds_mg_1_lightened
   m_TagString: Untagged
@@ -5905,12 +5936,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1349214061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349214058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: -0.4
+  cam: {fileID: 519420028}
 --- !u!1 &1358148465
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358148466}
   - component: {fileID: 1358148467}
+  - component: {fileID: 1358148468}
   m_Layer: 0
   m_Name: clouds_mg_2
   m_TagString: Untagged
@@ -5989,12 +6035,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1358148468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358148465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0
+  cam: {fileID: 519420028}
 --- !u!1 &1424891252
 GameObject:
   m_ObjectHideFlags: 3
@@ -6260,6 +6320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1690621070}
   - component: {fileID: 1690621071}
+  - component: {fileID: 1690621072}
   m_Layer: 0
   m_Name: sky_lightened
   m_TagString: Untagged
@@ -6328,12 +6389,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1690621072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690621069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.9
+  cam: {fileID: 519420028}
 --- !u!1 &1701129643
 GameObject:
   m_ObjectHideFlags: 0
@@ -6344,6 +6419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701129644}
   - component: {fileID: 1701129645}
+  - component: {fileID: 1701129646}
   m_Layer: 0
   m_Name: glacial_mountains
   m_TagString: Untagged
@@ -6412,12 +6488,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1701129646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701129643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.7
+  cam: {fileID: 519420028}
 --- !u!1 &1835262825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,8 +6534,8 @@ Transform:
   m_GameObject: {fileID: 1835262825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.97, y: 0.97, z: 0.97}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.06, y: 0.97, z: 0.97}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -6489,6 +6579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2070806641}
   - component: {fileID: 2070806642}
+  - component: {fileID: 2070806643}
   m_Layer: 0
   m_Name: clouds_mg_3
   m_TagString: Untagged
@@ -6557,9 +6648,23 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 100.33, y: 27}
+  m_Size: {x: 185, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2070806643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070806640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824aba5cced87c54481006728494cc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.4
+  cam: {fileID: 519420028}
