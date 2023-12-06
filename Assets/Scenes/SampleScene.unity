@@ -311,7 +311,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5023,7 +5023,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5238,7 +5238,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1473466571}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5523,6 +5523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b6e880566731459c03c4421fb7137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 7
+  rotSpeed: 11
   moveSpeed: 14
   particle: {fileID: 446905732}
