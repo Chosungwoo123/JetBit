@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
         Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
 
         GameManager.Instance.CameraShake(20, 0.2f);
+        GameManager.Instance.ShowEffectImage(0.1f, 0.5f);
 
         rigid.AddForce(transform.up * dashPower, ForceMode2D.Impulse);
 
