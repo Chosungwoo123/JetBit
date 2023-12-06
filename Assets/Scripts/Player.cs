@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private float dashTimer;
 
     private bool isMoveStop;
+    private bool isDashing;
 
     private Rigidbody2D rigid;
 
@@ -68,6 +69,11 @@ public class Player : MonoBehaviour
             trailParticle.Play();
             return;
         }
+        else if (isDashing && Input.GetKey(KeyCode.W))
+        {
+            trailParticle.Play();
+            return;
+        }
         else
         {
             trailParticle.Stop();
@@ -101,13 +107,17 @@ public class Player : MonoBehaviour
         rigid.velocity = Vector2.zero;
 
         isMoveStop = true;
+        isDashing = true;
         Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
+
+        GameManager.Instance.CameraShake(20, 0.2f);
 
         rigid.AddForce(transform.up * dashPower, ForceMode2D.Impulse);
 
         yield return dashTimeWaitForSeconds;
 
         isMoveStop = false;
+        isDashing = false;
         dashTimer = 0;
     }
 }
