@@ -6,7 +6,11 @@ public class Player : MonoBehaviour
 {
     public float rotSpeed;
     public float moveSpeed;
+    public float moveMultiply;
     public float fireRate;
+    public float dashCoolTime;
+    public float dashPower;
+    public float dashTime;
 
     public Transform shotPos;
 
@@ -15,12 +19,21 @@ public class Player : MonoBehaviour
     public ParticleSystem particle;
 
     private float fireTimer;
+    private float dashTimer;
+
+    private bool isMoveStop;
 
     private Rigidbody2D rigid;
+
+    private WaitForSeconds dashTimeWaitForSeconds;
+
+    private Vector2 moveVec;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+
+        dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
     }
 
     private void Update()
@@ -28,6 +41,7 @@ public class Player : MonoBehaviour
         RotationUpdate();
         MoveUpdate();
         AttackUpdate();
+        DashUpdate();
     }
 
     private void RotationUpdate()
@@ -43,9 +57,13 @@ public class Player : MonoBehaviour
 
     private void MoveUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && !isMoveStop)
         {
-            rigid.velocity = transform.up * moveSpeed;
+            moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * moveMultiply);
+            moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
+
+            rigid.velocity = moveVec;
+
             particle.Play();
             return;
         }
@@ -65,5 +83,29 @@ public class Player : MonoBehaviour
         }
 
         fireTimer += Time.deltaTime;
+    }
+
+    private void DashUpdate()
+    {
+        if (Input.GetMouseButtonDown(1) && dashTimer >= dashCoolTime)
+        {
+            StartCoroutine(DashRoutine());
+        }
+
+        dashTimer += Time.deltaTime;
+    }
+
+    private IEnumerator DashRoutine()
+    {
+        rigid.velocity = Vector2.zero;
+
+        isMoveStop = true;
+
+        rigid.AddForce(transform.up * dashPower, ForceMode2D.Impulse);
+
+        yield return dashTimeWaitForSeconds;
+
+        isMoveStop = false;
+        dashTimer = 0;
     }
 }
