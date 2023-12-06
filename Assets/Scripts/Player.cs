@@ -6,7 +6,15 @@ public class Player : MonoBehaviour
 {
     public float rotSpeed;
     public float moveSpeed;
+    public float fireRate;
+
+    public Transform shotPos;
+
+    public PlayerBullet bulletPrefab;
+
     public ParticleSystem particle;
+
+    private float fireTimer;
 
     private Rigidbody2D rigid;
 
@@ -19,6 +27,7 @@ public class Player : MonoBehaviour
     {
         RotationUpdate();
         MoveUpdate();
+        AttackUpdate();
     }
 
     private void RotationUpdate()
@@ -45,5 +54,16 @@ public class Player : MonoBehaviour
             particle.Stop();
             return;
         }
+    }
+
+    private void AttackUpdate()
+    {
+        if (Input.GetMouseButton(0) && fireTimer >= fireRate)
+        {
+            Instantiate(bulletPrefab, shotPos.position, transform.rotation);
+            fireTimer = 0;
+        }
+
+        fireTimer += Time.deltaTime;
     }
 }
