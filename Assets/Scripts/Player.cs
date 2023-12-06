@@ -15,8 +15,9 @@ public class Player : MonoBehaviour
     public Transform shotPos;
 
     public PlayerBullet bulletPrefab;
+    public GameObject dashEffectPrefab;
 
-    public ParticleSystem particle;
+    public ParticleSystem trailParticle;
 
     private float fireTimer;
     private float dashTimer;
@@ -64,12 +65,12 @@ public class Player : MonoBehaviour
 
             rigid.velocity = moveVec;
 
-            particle.Play();
+            trailParticle.Play();
             return;
         }
         else
         {
-            particle.Stop();
+            trailParticle.Stop();
             return;
         }
     }
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
         rigid.velocity = Vector2.zero;
 
         isMoveStop = true;
+        Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
 
         rigid.AddForce(transform.up * dashPower, ForceMode2D.Impulse);
 
