@@ -5,16 +5,24 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public float moveSpeed;
+    public float lifeTime;
+    public GameObject endEffect;
 
     private Rigidbody2D rigid;
+    private WaitForSeconds dieTime;
 
-    private void Start()
+    private void Awake()
     {
+        dieTime = new WaitForSeconds(lifeTime);
         rigid = GetComponent<Rigidbody2D>();
+    }
 
+    private void OnEnable()
+    {
         rigid.velocity = transform.up * moveSpeed;
 
         StartCoroutine(ScaleRoutine());
+        StartCoroutine(DieRoutine());
     }
 
     private IEnumerator ScaleRoutine()
@@ -27,7 +35,7 @@ public class PlayerBullet : MonoBehaviour
 
         while (curScale.x < 1)
         {
-            curScale.x += Time.deltaTime / 0.08f;
+            curScale.x += Time.deltaTime / 0.15f;
 
             transform.localScale = curScale;
 
@@ -37,5 +45,13 @@ public class PlayerBullet : MonoBehaviour
         curScale.x = 1;
 
         transform.localScale = curScale;
+    }
+
+    private IEnumerator DieRoutine()
+    {
+        yield return dieTime;
+
+        Instantiate(endEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
