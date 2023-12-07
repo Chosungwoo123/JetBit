@@ -6299,7 +6299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b6e880566731459c03c4421fb7137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 11
+  rotSpeed: 3
   moveSpeed: 22
   moveMultiply: 3
   fireRate: 0.1
