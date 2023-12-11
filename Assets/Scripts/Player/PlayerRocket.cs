@@ -5,11 +5,18 @@ using UnityEngine;
 public class PlayerRocket : MonoBehaviour
 {
     public float rotSpeed;
+    public float targetingRotSpeed;
     public float moveSpeed;
     public float moveMultiply;
+    public float scanRange;
+
+    public LayerMask targetLayer;
 
     private float angle;
 
+    private bool isTargeting;
+
+    private GameObject target;
     private Rigidbody2D rigid;
 
     private Vector2 moveVec;
@@ -23,6 +30,7 @@ public class PlayerRocket : MonoBehaviour
     {
         MoveUpdate();
         RotationUpdate();
+        CheckingTarget();
     }
 
     private void MoveUpdate()
@@ -35,15 +43,50 @@ public class PlayerRocket : MonoBehaviour
 
     private void RotationUpdate()
     {
+        if (target != null)
+        {
+            Vector2 mouseDir = target.transform.position - transform.position;
+
+            angle = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
+
+            angle -= 90;
+        }
+
         Quaternion dirRot = Quaternion.Euler(0, 0, angle);
 
-        this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, Time.deltaTime * rotSpeed);
+        this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, 
+                                                   Time.deltaTime * ((isTargeting == true) ? targetingRotSpeed : rotSpeed));
+    }
+
+    private void CheckingTarget()
+    {
+        if (isTargeting)
+        {
+            return;
+        }
+
+        var scaningTarget = Physics2D.OverlapCircle(transform.position, scanRange, targetLayer);
+
+        if (scaningTarget != null)
+        {
+            target = scaningTarget.gameObject;
+            isTargeting = true;
+            return;
+        }
     }
 
     public void InitRocket(float targetAngle)
     {
         angle = targetAngle;
+        isTargeting = false;
 
         Debug.Log(angle);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, scanRange);
     }
 }

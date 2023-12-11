@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4308909468905569099}
   - component: {fileID: 4308909468905569093}
   - component: {fileID: 4308909468905569098}
+  - component: {fileID: 164589256}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Untagged
@@ -69,8 +70,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 3
+  targetingRotSpeed: 30
   moveSpeed: 30
   moveMultiply: 1
+  scanRange: 20
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!70 &164589256
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308909468905569097}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0025558472, y: 0}
+  m_Size: {x: 0.34157562, y: 1}
+  m_Direction: 0
 --- !u!1 &4308909470009466709
 GameObject:
   m_ObjectHideFlags: 0
