@@ -29,11 +29,14 @@ public class Player : MonoBehaviour
 
     private WaitForSeconds dashTimeWaitForSeconds;
 
+    private Animator anim;
+
     private Vector2 moveVec;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
     }
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour
         MoveUpdate();
         AttackUpdate();
         DashUpdate();
+        AnimationUpdate();
     }
 
     private void RotationUpdate()
@@ -55,6 +59,15 @@ public class Player : MonoBehaviour
         Quaternion dirRot = Quaternion.Euler(0, 0, angle - 90);
 
         this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, Time.deltaTime * rotSpeed);
+
+        if (transform.eulerAngles.z > 45 && transform.eulerAngles.z < 140)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     private void MoveUpdate()
@@ -120,5 +133,11 @@ public class Player : MonoBehaviour
         isMoveStop = false;
         isDashing = false;
         dashTimer = 0;
+    }
+
+    private void AnimationUpdate()
+    {
+        anim.SetFloat("Rotation", Mathf.Abs((transform.eulerAngles.z > 180) ? 180 -
+                                            (transform.eulerAngles.z - 180) : transform.eulerAngles.z));
     }
 }
