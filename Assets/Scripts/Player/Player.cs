@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     public ParticleSystem trailParticle;
 
+    public PlayerRocket rocketPrefab;
+
     private float fireTimer;
     private float dashTimer;
 
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
         AttackUpdate();
         DashUpdate();
         AnimationUpdate();
+        SkillUpdate();
     }
 
     private void RotationUpdate()
@@ -139,5 +142,18 @@ public class Player : MonoBehaviour
     {
         anim.SetFloat("Rotation", Mathf.Abs((transform.eulerAngles.z > 180) ? 180 -
                                             (transform.eulerAngles.z - 180) : transform.eulerAngles.z));
+    }
+
+    private void SkillUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            var rocket = Instantiate(rocketPrefab, shotPos.position, 
+                                     Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
+
+            rocket.InitRocket(transform.eulerAngles.z);
+
+            Debug.Log(transform.eulerAngles.z);
+        }
     }
 }
