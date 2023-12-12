@@ -6193,7 +6193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 3
+  rotSpeed: 8
   moveSpeed: 17
   moveMultiply: 2
   isRotation: 1
@@ -6856,7 +6856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b6e880566731459c03c4421fb7137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 3
+  rotSpeed: 4
   moveSpeed: 22
   moveMultiply: 3
   fireRate: 0.1
