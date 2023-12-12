@@ -56,7 +56,7 @@ public class PlayerRocket : MonoBehaviour
         Quaternion dirRot = Quaternion.Euler(0, 0, angle);
 
         this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, 
-                                                   Time.deltaTime * ((isTargeting == true) ? targetingRotSpeed : rotSpeed));
+                                                   Time.deltaTime * ((isTargeting) ? targetingRotSpeed : rotSpeed));
     }
 
     private void CheckingTarget()
