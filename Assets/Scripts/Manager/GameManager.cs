@@ -40,6 +40,14 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region 게임 관련 중요한 오브젝트
+
+    [Space(10)]
+    [Header("게임 관련 중요한 오브젝트")]
+    public GameObject curPlayer;
+
+    #endregion
+
     private void Awake()
     {
         if (instance == null)
