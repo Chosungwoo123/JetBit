@@ -9,6 +9,7 @@ public class PlayerRocket : MonoBehaviour
     public float moveSpeed;
     public float moveMultiply;
     public float scanRange;
+    public Effect explotionEffect;
 
     public LayerMask targetLayer;
 
@@ -81,6 +82,19 @@ public class PlayerRocket : MonoBehaviour
         isTargeting = false;
 
         Debug.Log(angle);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Instantiate(explotionEffect, transform.position, Quaternion.identity);
+
+            GameManager.Instance.CameraShake(20, 0.3f);
+            GameManager.Instance.ShowEffectImage(0.1f, 0.5f);
+
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmos()

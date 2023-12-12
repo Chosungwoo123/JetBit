@@ -57,9 +57,15 @@ public class GameManager : MonoBehaviour
         cameraShake.ShakeCamera(intensity, time);
     }
 
+    Coroutine effectImageRoutine;
     public void ShowEffectImage(float time, float fadeAmount)
     {
-        StartCoroutine(FadeOutObject(effectImage, time, fadeAmount));
+        if (effectImageRoutine != null)
+        {
+            StopCoroutine(effectImageRoutine);
+        }
+
+        effectImageRoutine = StartCoroutine(FadeOutObject(effectImage, time, fadeAmount));
     }
 
     private IEnumerator FadeOutObject(Image _image, float time, float fadeAmount)
