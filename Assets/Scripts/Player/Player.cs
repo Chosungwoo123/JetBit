@@ -152,8 +152,6 @@ public class Player : MonoBehaviour
                                      Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
 
             rocket.InitRocket(transform.eulerAngles.z);
-
-            Debug.Log(transform.eulerAngles.z);
         }
     }
 }
