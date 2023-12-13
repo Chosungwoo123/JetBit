@@ -20,6 +20,7 @@ public class EnemyBase : MonoBehaviour
     #endregion
 
     public Effect dieEffect;
+    public Effect dieEffect2;
 
     private float curHealth;
 
@@ -74,6 +75,11 @@ public class EnemyBase : MonoBehaviour
             // Á×´Â ·ÎÁ÷
             Instantiate(dieEffect, transform.position, transform.rotation);
 
+            if (dieEffect2 != null)
+            {
+                Instantiate(dieEffect2, transform.position, transform.rotation);
+            }
+
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
 
@@ -87,6 +93,11 @@ public class EnemyBase : MonoBehaviour
         {
             // Á×´Â ·ÎÁ÷
             Instantiate(dieEffect, transform.position, transform.rotation);
+
+            if (dieEffect2 != null)
+            {
+                Instantiate(dieEffect2, transform.position, transform.rotation);
+            }
 
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);

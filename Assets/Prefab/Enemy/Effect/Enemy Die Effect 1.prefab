@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6166622695694368041}
   - component: {fileID: 6166622695694368040}
   m_Layer: 0
-  m_Name: Enemy Die Effect
+  m_Name: Enemy Die Effect 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
