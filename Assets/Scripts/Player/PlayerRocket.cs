@@ -9,6 +9,7 @@ public class PlayerRocket : MonoBehaviour
     public float moveSpeed;
     public float moveMultiply;
     public float scanRange;
+    public float damage;
     public Effect explotionEffect;
 
     public LayerMask targetLayer;
@@ -88,6 +89,8 @@ public class PlayerRocket : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            collision.GetComponent<EnemyBase>().OnDamage(damage);
+
             Instantiate(explotionEffect, transform.position, Quaternion.identity);
 
             GameManager.Instance.CameraShake(20, 0.3f);

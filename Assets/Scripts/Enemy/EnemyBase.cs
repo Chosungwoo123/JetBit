@@ -12,10 +12,13 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float rotSpeed;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveMultiply;
+    [SerializeField] private float maxHealth;
 
     [SerializeField] private bool isRotation;   // 플레이어 쪽을 바라보는지 체크하는 변수
 
     #endregion
+
+    private float curHealth;
 
     private Rigidbody2D rigid;
 
@@ -24,6 +27,8 @@ public class EnemyBase : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+
+        curHealth = maxHealth;
     }
 
     private void Update()
@@ -54,5 +59,15 @@ public class EnemyBase : MonoBehaviour
         moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
 
         rigid.velocity = moveVec;
+    }
+
+    public void OnDamage(float damage)
+    {
+        curHealth -= damage;
+
+        if (curHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

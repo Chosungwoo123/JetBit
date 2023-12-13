@@ -6,6 +6,7 @@ public class PlayerBullet : MonoBehaviour
 {
     public float moveSpeed;
     public float lifeTime;
+    public float damage;
     public GameObject endEffect;
 
     private Rigidbody2D rigid;
@@ -53,5 +54,15 @@ public class PlayerBullet : MonoBehaviour
 
         Instantiate(endEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyBase>().OnDamage(damage);
+            Instantiate(endEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
