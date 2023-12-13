@@ -81,8 +81,6 @@ public class PlayerRocket : MonoBehaviour
     {
         angle = targetAngle;
         isTargeting = false;
-
-        Debug.Log(angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

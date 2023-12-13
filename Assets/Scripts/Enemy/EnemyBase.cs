@@ -18,6 +18,8 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
+    public Effect dieEffect;
+
     private float curHealth;
 
     private Rigidbody2D rigid;
@@ -67,6 +69,12 @@ public class EnemyBase : MonoBehaviour
 
         if (curHealth <= 0)
         {
+            // Á×´Â ·ÎÁ÷
+            Instantiate(dieEffect, transform.position, Quaternion.identity);
+
+            GameManager.Instance.CameraShake(30, 0.3f);
+            GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
             Destroy(gameObject);
         }
     }
