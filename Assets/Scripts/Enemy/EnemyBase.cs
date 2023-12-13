@@ -15,6 +15,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float maxHealth;
 
     [SerializeField] private bool isRotation;   // 플레이어 쪽을 바라보는지 체크하는 변수
+    [SerializeField] private bool isSelfDestruct; // 플레이어에 닿으면 자폭하는지 체크하는 변수
 
     #endregion
 
@@ -29,6 +30,7 @@ public class EnemyBase : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        moveSpeed += Random.Range(-3, 3);
 
         curHealth = maxHealth;
     }
@@ -68,6 +70,20 @@ public class EnemyBase : MonoBehaviour
         curHealth -= damage;
 
         if (curHealth <= 0)
+        {
+            // 죽는 로직
+            Instantiate(dieEffect, transform.position, Quaternion.identity);
+
+            GameManager.Instance.CameraShake(30, 0.3f);
+            GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && isSelfDestruct)
         {
             // 죽는 로직
             Instantiate(dieEffect, transform.position, Quaternion.identity);
