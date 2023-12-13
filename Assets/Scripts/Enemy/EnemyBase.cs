@@ -72,7 +72,7 @@ public class EnemyBase : MonoBehaviour
         if (curHealth <= 0)
         {
             // Á×´Â ·ÎÁ÷
-            Instantiate(dieEffect, transform.position, Quaternion.identity);
+            Instantiate(dieEffect, transform.position, transform.rotation);
 
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
@@ -86,7 +86,7 @@ public class EnemyBase : MonoBehaviour
         if (collision.CompareTag("Player") && isSelfDestruct)
         {
             // Á×´Â ·ÎÁ÷
-            Instantiate(dieEffect, transform.position, Quaternion.identity);
+            Instantiate(dieEffect, transform.position, transform.rotation);
 
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
