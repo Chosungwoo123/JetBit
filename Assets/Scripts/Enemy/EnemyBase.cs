@@ -22,7 +22,19 @@ public class EnemyBase : MonoBehaviour
     public Effect dieEffect;
     public Effect dieEffect2;
 
+    #region 공격 관련 스탯
+
+    [Space(10)]
+    [Header("공격 관련 스탯")]
+    [SerializeField] private float attackRate;
+    [SerializeField] protected GameObject bulletPrefab;
+
+    #endregion
+
+    protected bool isAttack;
+
     private float curHealth;
+    private float attackTimer;
 
     private Rigidbody2D rigid;
 
@@ -40,6 +52,7 @@ public class EnemyBase : MonoBehaviour
     {
         RotationUpdate();
         MoveUpdate();
+        AttackUpdate();
     }
 
     private void RotationUpdate()
@@ -64,6 +77,27 @@ public class EnemyBase : MonoBehaviour
         moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
 
         rigid.velocity = moveVec;
+    }
+
+    private void AttackUpdate()
+    {
+        if (isAttack)
+        {
+            return;
+        }
+
+        if (attackTimer >= attackRate && !isAttack)
+        {
+            ShootBullet();
+            attackTimer = 0;
+        }
+
+        attackTimer += Time.deltaTime;
+    }
+
+    protected virtual void ShootBullet()
+    {
+        return;
     }
 
     public void OnDamage(float damage)
