@@ -14,6 +14,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float moveMultiply;
     [SerializeField] private float maxHealth;
 
+    [SerializeField] private int maxAdjustmentMoveSpeed;
+    [SerializeField] private int minAdjustmentMoveSpeed;
+
     [SerializeField] private bool isRotation;   // 플레이어 쪽을 바라보는지 체크하는 변수
     [SerializeField] private bool isSelfDestruct; // 플레이어에 닿으면 자폭하는지 체크하는 변수
 
@@ -43,7 +46,7 @@ public class EnemyBase : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        moveSpeed += Random.Range(-3, 3);
+        moveSpeed += Random.Range(maxAdjustmentMoveSpeed, maxAdjustmentMoveSpeed);
 
         curHealth = maxHealth;
     }
@@ -73,8 +76,20 @@ public class EnemyBase : MonoBehaviour
 
     private void MoveUpdate()
     {
-        moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * moveMultiply);
-        moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
+        if (isRotation)
+        {
+            moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * moveMultiply);
+            moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
+        }
+        else
+        {
+            Vector2 dir = GameManager.Instance.curPlayer.transform.position - transform.position;
+
+            dir.Normalize();
+
+            moveVec.x = Mathf.Lerp(rigid.velocity.x, dir.x * moveSpeed, Time.deltaTime * moveMultiply);
+            moveVec.y = Mathf.Lerp(rigid.velocity.y, dir.y * moveSpeed, Time.deltaTime * moveMultiply);
+        }
 
         rigid.velocity = moveVec;
     }

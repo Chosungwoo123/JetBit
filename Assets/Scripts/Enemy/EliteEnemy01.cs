@@ -23,8 +23,6 @@ public class EliteEnemy01 : EnemyBase
                 Vector2 dir = new Vector2(Mathf.Cos(Mathf.PI * 2 * j / bulletCount + offset), 
                                           Mathf.Sin(Mathf.PI * 2 * j / bulletCount + offset));
 
-                Debug.Log(Mathf.PI * 2 * j / bulletCount);
-
                 var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
                 bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 7, ForceMode2D.Impulse);

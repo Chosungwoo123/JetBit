@@ -151,10 +151,14 @@ MonoBehaviour:
   moveSpeed: 17
   moveMultiply: 2
   maxHealth: 80
+  maxAdjustmentMoveSpeed: 3
+  minAdjustmentMoveSpeed: 3
   isRotation: 1
   isSelfDestruct: 1
   dieEffect: {fileID: 6166622695694368040, guid: cd4c9f6340b26ec419b482c434526e61, type: 3}
   dieEffect2: {fileID: 5604115455679862296, guid: db116b9c89652e24baa7d7420e5ee59c, type: 3}
+  attackRate: 0
+  bulletPrefab: {fileID: 0}
 --- !u!1 &3956130277836683063
 GameObject:
   m_ObjectHideFlags: 0
