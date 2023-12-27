@@ -12,8 +12,8 @@ public class EliteEnemy01 : EnemyBase
 
     private IEnumerator ShootRoutine()
     {
-        int shootCount = Random.Range(5, 10);
-        int bulletCount = 10;
+        int shootCount = Random.Range(3, 6);
+        int bulletCount = 7;
         float offset = 0f;
 
         for (int i = 0; i < shootCount; i++)
@@ -23,16 +23,16 @@ public class EliteEnemy01 : EnemyBase
                 Vector2 dir = new Vector2(Mathf.Cos(Mathf.PI * 2 * j / bulletCount + offset), 
                                           Mathf.Sin(Mathf.PI * 2 * j / bulletCount + offset));
 
-                var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-                bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 7, ForceMode2D.Impulse);
+                angle -= 90;
 
-                
+                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle));
             }
 
             offset += 1f;
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         isAttack = false;
