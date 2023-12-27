@@ -5802,9 +5802,20 @@ MonoBehaviour:
   - {fileID: 1912868573}
   - {fileID: 1352590969}
   - {fileID: 1027582103}
-  spawnTime: 3
+  spawnTime: 5
   enemies:
   - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - {fileID: 6644607869368652451, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+  enemyDatas:
+  - enemyPrefab: {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+    weight: 50
+  - enemyPrefab: {fileID: 6644607869368652451, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+    weight: 10
 --- !u!1 &665163633
 GameObject:
   m_ObjectHideFlags: 0
