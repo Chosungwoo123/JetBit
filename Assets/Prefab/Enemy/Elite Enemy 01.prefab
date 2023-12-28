@@ -139,12 +139,12 @@ MonoBehaviour:
   rotSpeed: 0
   moveSpeed: 1
   moveMultiply: 1
-  maxHealth: 500
+  maxHealth: 200
   maxAdjustmentMoveSpeed: 0
   minAdjustmentMoveSpeed: 0
   isRotation: 0
   isSelfDestruct: 0
   dieEffect: {fileID: 2983322926897575715, guid: dc123f7e0716fa447a2eb0413a81ae21, type: 3}
   dieEffect2: {fileID: 0}
-  attackRate: 3
+  attackRate: 5
   bulletPrefab: {fileID: 5465226401046430895, guid: 681232ac2089d4c4b8aaec6f6ef46fae, type: 3}
