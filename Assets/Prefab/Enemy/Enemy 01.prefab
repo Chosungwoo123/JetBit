@@ -150,7 +150,7 @@ MonoBehaviour:
   rotSpeed: 8
   moveSpeed: 17
   moveMultiply: 2
-  maxHealth: 80
+  maxHealth: 40
   maxAdjustmentMoveSpeed: 3
   minAdjustmentMoveSpeed: 3
   isRotation: 1
