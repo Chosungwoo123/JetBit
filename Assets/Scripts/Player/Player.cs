@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region 기본 스탯
+
+    [Space(10)] 
+    [Header("기본 스탯 관련")]
     public float rotSpeed;
     public float moveSpeed;
     public float moveMultiply;
@@ -11,6 +15,13 @@ public class Player : MonoBehaviour
     public float dashCoolTime;
     public float dashPower;
     public float dashTime;
+
+    #endregion
+
+    #region 게임 오브젝트
+
+    [Space(10)]
+    [Header("게임 오브젝트 관련")]
 
     public Transform shotPos;
 
@@ -20,6 +31,14 @@ public class Player : MonoBehaviour
     public ParticleSystem trailParticle;
 
     public PlayerRocket rocketPrefab;
+
+    #endregion
+
+    #region 사운드
+
+    public PlayerSounds sounds;
+
+    #endregion
 
     private float fireTimer;
     private float dashTimer;
@@ -103,6 +122,7 @@ public class Player : MonoBehaviour
         {
             Instantiate(bulletPrefab, shotPos.position, transform.rotation);
             fireTimer = 0;
+            SoundManager.Instance.PlaySound(sounds.shotSound);
         }
 
         fireTimer += Time.deltaTime;
@@ -153,5 +173,11 @@ public class Player : MonoBehaviour
 
             rocket.InitRocket(transform.eulerAngles.z);
         }
+    }
+
+    [System.Serializable]
+    public class PlayerSounds
+    {
+        public AudioClip shotSound;
     }
 }
