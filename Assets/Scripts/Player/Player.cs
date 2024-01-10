@@ -94,6 +94,10 @@ public class Player : MonoBehaviour
 
     private void MoveUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SoundManager.Instance.PlaySound(sounds.propelSound);
+        }
         if (Input.GetKey(KeyCode.W) && !isMoveStop)
         {
             moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * moveMultiply);
@@ -182,5 +186,6 @@ public class Player : MonoBehaviour
     {
         public AudioClip shotSound;
         public AudioClip dashSound;
+        public AudioClip propelSound;
     }
 }

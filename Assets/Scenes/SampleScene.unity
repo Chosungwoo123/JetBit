@@ -7408,6 +7408,7 @@ MonoBehaviour:
   sounds:
     shotSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
     dashSound: {fileID: 8300000, guid: 0bd05763df902854a80475577a26666a, type: 3}
+    propelSound: {fileID: 8300000, guid: 8328d2d4791a90442ba426c0ab4bb30e, type: 3}
 --- !u!95 &1473466575
 Animator:
   serializedVersion: 5
