@@ -8,6 +8,7 @@ public class Effect : MonoBehaviour
 {
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private float sec;
+    [SerializeField] private AudioClip sound;
 
     private SpriteRenderer sr;
     private WaitForSeconds waitTime;
@@ -17,6 +18,11 @@ public class Effect : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         waitTime = new WaitForSeconds(sec / sprites.Count);
+
+        if (sound != null)
+        {
+            SoundManager.Instance.PlaySound(sound);
+        }
 
         StartCoroutine(EffectStart());
     }

@@ -103,3 +103,4 @@ MonoBehaviour:
   - {fileID: 1442006695, guid: 24d3bf4d532d7b84a9cd4b8220b4fed8, type: 3}
   - {fileID: -1833209170, guid: 24d3bf4d532d7b84a9cd4b8220b4fed8, type: 3}
   sec: 0.3
+  sound: {fileID: 0}

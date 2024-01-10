@@ -125,3 +125,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 57e379a1e22469e45a86bd142a12edeb, type: 3}
   - {fileID: 21300000, guid: 8ae650804bd6a8b45b8a8c8e4db0d334, type: 3}
   sec: 0.6
+  sound: {fileID: 8300000, guid: 678ce39e67d76d040a732f601bcb0571, type: 3}
