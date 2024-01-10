@@ -146,6 +146,8 @@ public class Player : MonoBehaviour
         isDashing = true;
         Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
 
+        SoundManager.Instance.PlaySound(sounds.dashSound);
+
         GameManager.Instance.CameraShake(20, 0.3f);
         GameManager.Instance.ShowEffectImage(0.1f, 0.5f);
 
@@ -179,5 +181,6 @@ public class Player : MonoBehaviour
     public class PlayerSounds
     {
         public AudioClip shotSound;
+        public AudioClip dashSound;
     }
 }
