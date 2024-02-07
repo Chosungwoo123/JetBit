@@ -22,8 +22,8 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
-    public Effect dieEffect;
-    public Effect dieEffect2;
+    public GameObject dieEffect;
+    public GameObject dieEffect2;
 
     #region 공격 관련 스탯
 

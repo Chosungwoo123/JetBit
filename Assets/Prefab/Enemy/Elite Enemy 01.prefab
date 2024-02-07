@@ -144,7 +144,7 @@ MonoBehaviour:
   minAdjustmentMoveSpeed: 0
   isRotation: 0
   isSelfDestruct: 0
-  dieEffect: {fileID: 2983322926897575715, guid: dc123f7e0716fa447a2eb0413a81ae21, type: 3}
+  dieEffect: {fileID: 9177582967859051751, guid: 673fa30060f8b0042a8716ba71b5c904, type: 3}
   dieEffect2: {fileID: 0}
   attackRate: 5
   bulletPrefab: {fileID: 5465226401046430895, guid: 681232ac2089d4c4b8aaec6f6ef46fae, type: 3}
