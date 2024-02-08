@@ -16,9 +16,12 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private int maxAdjustmentMoveSpeed;
     [SerializeField] private int minAdjustmentMoveSpeed;
+    
+    [Tooltip("플레이어 쪽을 바라보는지 체크하는 변수")]
+    [SerializeField] private bool isRotation;
 
-    [SerializeField] private bool isRotation;   // 플레이어 쪽을 바라보는지 체크하는 변수
-    [SerializeField] private bool isSelfDestruct; // 플레이어에 닿으면 자폭하는지 체크하는 변수
+    [Tooltip("플레이어에 닿으면 자폭하는지 체크하는 변수")]
+    [SerializeField] private bool isSelfDestruct;
 
     #endregion
 
@@ -43,7 +46,9 @@ public class EnemyBase : MonoBehaviour
 
     private Vector2 moveVec;
 
-    private void Start()
+    protected Vector3 targetPos;
+
+    protected virtual void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         moveSpeed += Random.Range(maxAdjustmentMoveSpeed, maxAdjustmentMoveSpeed);
@@ -51,11 +56,12 @@ public class EnemyBase : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         RotationUpdate();
         MoveUpdate();
         AttackUpdate();
+        TargetUpdate();
     }
 
     private void RotationUpdate()
@@ -66,7 +72,7 @@ public class EnemyBase : MonoBehaviour
             return;
         }
 
-        Vector2 playerDir = GameManager.Instance.curPlayer.transform.position - transform.position;
+        Vector2 playerDir = targetPos - transform.position;
 
         float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
 
@@ -95,7 +101,7 @@ public class EnemyBase : MonoBehaviour
         rigid.velocity = moveVec;
     }
 
-    private void AttackUpdate()
+    protected virtual void AttackUpdate()
     {
         if (isAttack)
         {
@@ -114,6 +120,11 @@ public class EnemyBase : MonoBehaviour
     protected virtual void ShootBullet()
     {
         return;
+    }
+
+    protected virtual void TargetUpdate()
+    {
+        targetPos = GameManager.Instance.curPlayer.transform.position;
     }
 
     public void OnDamage(float damage)
