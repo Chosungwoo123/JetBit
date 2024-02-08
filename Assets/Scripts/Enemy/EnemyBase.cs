@@ -60,6 +60,7 @@ public class EnemyBase : MonoBehaviour
 
     private void RotationUpdate()
     {
+        // 플레이어 방향 바라보기
         if (!isRotation)
         {
             return;
@@ -150,6 +151,8 @@ public class EnemyBase : MonoBehaviour
 
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
+            // 플레이어 데미지 주기
 
             Destroy(gameObject);
         }

@@ -5,8 +5,11 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float spawnTime;
+    [SerializeField] private float spawnTimeMin;
+    [SerializeField] private float spawnTimeMax;
     [SerializeField] private List<EnemyData> enemyDatas;
+
+    private float spawnTime;
 
     [System.Serializable]
     public struct EnemyData
@@ -25,6 +28,8 @@ public class EnemySpawner : MonoBehaviour
         {
             total += enemyDatas[i].weight;
         }
+
+        spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
     }
 
     private void Update()
@@ -55,5 +60,7 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemyDatas[i].enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
             }
         }
+
+        spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
     }
 }
