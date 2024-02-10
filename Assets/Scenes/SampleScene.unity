@@ -6366,6 +6366,7 @@ MonoBehaviour:
   effectImage: {fileID: 342931560}
   cameraShake: {fileID: 665163637}
   curPlayer: {fileID: 1473466569}
+  maxFrame: 60
 --- !u!4 &773885421
 Transform:
   m_ObjectHideFlags: 0

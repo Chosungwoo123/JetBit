@@ -48,6 +48,14 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region 게임 관련 중요한 변수들
+
+    [Space(10)]
+    [Header("게임 관련 중요한 변수들")]
+    [SerializeField] private int maxFrame;
+
+    #endregion
+
     private void Awake()
     {
         if (instance == null)
@@ -58,6 +66,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        // 프레임 고정
+        Application.targetFrameRate = maxFrame;
     }
 
     public void CameraShake(float intensity, float time)
