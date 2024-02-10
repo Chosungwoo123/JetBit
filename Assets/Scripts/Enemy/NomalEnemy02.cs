@@ -44,10 +44,6 @@ public class NomalEnemy02 : EnemyBase
         {
             playerScaning = true;
         }
-        else
-        {
-            playerScaning = false;
-        }
     }
 
     protected override void TargetUpdate()
