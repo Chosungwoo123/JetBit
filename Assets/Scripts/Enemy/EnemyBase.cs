@@ -5,10 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyBase : MonoBehaviour
 {
-    #region ±âº» ½ºÅÈ
+    #region ê¸°ë³¸ ìŠ¤íƒ¯
 
     [Space(10)]
-    [Header("±âº» ½ºÅÈ")]
+    [Header("ê¸°ë³¸ ìŠ¤íƒ¯")]
     [SerializeField] private float rotSpeed;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveMultiply;
@@ -17,10 +17,10 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private int maxAdjustmentMoveSpeed;
     [SerializeField] private int minAdjustmentMoveSpeed;
     
-    [Tooltip("ÇÃ·¹ÀÌ¾î ÂÊÀ» ¹Ù¶óº¸´ÂÁö Ã¼Å©ÇÏ´Â º¯¼ö")]
+    [Tooltip("í”Œë ˆì´ì–´ ìª½ì„ ë°”ë¼ë³´ëŠ”ì§€ ì²´í¬í•˜ëŠ” ë³€ìˆ˜")]
     [SerializeField] private bool isRotation;
 
-    [Tooltip("ÇÃ·¹ÀÌ¾î¿¡ ´êÀ¸¸é ÀÚÆøÇÏ´ÂÁö Ã¼Å©ÇÏ´Â º¯¼ö")]
+    [Tooltip("í”Œë ˆì´ì–´ì— ë‹¿ìœ¼ë©´ ìí­í•˜ëŠ”ì§€ ì²´í¬í•˜ëŠ” ë³€ìˆ˜")]
     [SerializeField] private bool isSelfDestruct;
 
     #endregion
@@ -28,19 +28,20 @@ public class EnemyBase : MonoBehaviour
     public GameObject dieEffect;
     public GameObject dieEffect2;
 
-    #region °ø°İ °ü·Ã ½ºÅÈ
+    #region ê³µê²© ê´€ë ¨ ìŠ¤íƒ¯
 
     [Space(10)]
-    [Header("°ø°İ °ü·Ã ½ºÅÈ")]
-    [SerializeField] private float attackRate;
+    [Header("ê³µê²© ê´€ë ¨ ìŠ¤íƒ¯")]
+    [SerializeField] protected float attackRate;
     [SerializeField] protected GameObject bulletPrefab;
 
     #endregion
 
     protected bool isAttack;
 
+    protected float attackTimer;
+
     private float curHealth;
-    private float attackTimer;
 
     private Rigidbody2D rigid;
 
@@ -66,7 +67,7 @@ public class EnemyBase : MonoBehaviour
 
     private void RotationUpdate()
     {
-        // ÇÃ·¹ÀÌ¾î ¹æÇâ ¹Ù¶óº¸±â
+        // í”Œë ˆì´ì–´ ë°©í–¥ ë°”ë¼ë³´ê¸°
         if (!isRotation)
         {
             return;
@@ -133,7 +134,7 @@ public class EnemyBase : MonoBehaviour
 
         if (curHealth <= 0)
         {
-            // Á×´Â ·ÎÁ÷
+            // ì£½ëŠ” ë¡œì§
             Instantiate(dieEffect, transform.position, transform.rotation);
 
             if (dieEffect2 != null)
@@ -152,7 +153,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.CompareTag("Player") && isSelfDestruct)
         {
-            // Á×´Â ·ÎÁ÷
+            // ì£½ëŠ” ë¡œì§
             Instantiate(dieEffect, transform.position, transform.rotation);
 
             if (dieEffect2 != null)
@@ -163,7 +164,7 @@ public class EnemyBase : MonoBehaviour
             GameManager.Instance.CameraShake(30, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
 
-            // ÇÃ·¹ÀÌ¾î µ¥¹ÌÁö ÁÖ±â
+            // í”Œë ˆì´ì–´ ë°ë¯¸ì§€ ì£¼ê¸°
 
             Destroy(gameObject);
         }

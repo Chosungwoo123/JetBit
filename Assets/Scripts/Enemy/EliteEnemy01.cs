@@ -27,7 +27,7 @@ public class EliteEnemy01 : EnemyBase
 
                 angle -= 90;
 
-                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle));
+                Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyBullet>().InitBullet(10, 2, 5);
             }
 
             offset += 1f;

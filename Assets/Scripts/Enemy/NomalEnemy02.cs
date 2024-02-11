@@ -5,7 +5,7 @@ using UnityEngine;
 public class NomalEnemy02 : EnemyBase
 {
     [Space(10)]
-    [Header("½ºÄµ ¹üÀ§")]
+    [Header("ìŠ¤ìº” ë²”ìœ„")]
     [SerializeField] private float attackRange;
     [SerializeField] private float targetingRange;
 
@@ -16,8 +16,7 @@ public class NomalEnemy02 : EnemyBase
     {
         base.Start();
 
-
-        // ·£´ıÇÑ À§Ä¡·Î ÀÌµ¿
+        // ëœë¤í•œ ìœ„ì¹˜ ì§€ì •
         targetPos = new Vector3(Random.Range(-96, 96), Random.Range(-17, 17), 0);
     }
 
@@ -29,7 +28,7 @@ public class NomalEnemy02 : EnemyBase
 
     private void ScanUpdate()
     {
-        // ÇÃ·¹ÀÌ¾î°¡ ÁÖº¯¿¡ ÀÖÀ¸¸é ÇÃ·¹ÀÌ¾î¸¦ °ø°İ
+        // ê³µê²© ë²”ìœ„ ì•ˆì— í”Œë ˆì´ì–´ê°€ ë“¤ì–´ì˜¤ë©´ ê³µê²©
         if (Vector3.Distance(GameManager.Instance.curPlayer.transform.position, transform.position) <= attackRange)
         {
             canAttack = true;
@@ -39,7 +38,7 @@ public class NomalEnemy02 : EnemyBase
             canAttack = false;
         }
 
-        // ÇÃ·¹ÀÌ¾î°¡ °¡±îÀÌ ´Ù°¡¿À¸é ÇÃ·¹ÀÌ¾î¸¦ ¦i¾Æ°¨
+        // í”Œë ˆì´ì–´ê°€ ê·¼ì²˜ì— ì˜¤ë©´ ë”°ë¼ê°
         if (Vector3.Distance(GameManager.Instance.curPlayer.transform.position, transform.position) <= targetingRange)
         {
             playerScaning = true;
@@ -72,12 +71,39 @@ public class NomalEnemy02 : EnemyBase
 
     protected override void AttackUpdate()
     {
+        if (isAttack)
+        {
+            return;
+        }
 
+        if (canAttack && attackTimer >= attackRate && !isAttack)
+        {
+            ShootBullet();
+            attackTimer = 0;
+        }
+
+        attackTimer += Time.deltaTime;
     }
 
     protected override void ShootBullet()
     {
+        ShootRoutine();
+    }
 
+    WaitForSeconds shootInterval = new WaitForSeconds(0.3f);
+    private IEnumerator ShootRoutine()
+    {
+        Vector3 dir = GameManager.Instance.curPlayer.transform.position - transform.position;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        angle -= 90;
+
+        for (int i = 0; i < 5; i++)
+        {
+        }
+
+        yield return null;
     }
 
     private void OnDrawGizmos()
