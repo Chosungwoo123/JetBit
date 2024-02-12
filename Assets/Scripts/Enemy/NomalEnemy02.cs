@@ -87,23 +87,32 @@ public class NomalEnemy02 : EnemyBase
 
     protected override void ShootBullet()
     {
-        ShootRoutine();
+        StartCoroutine(ShootRoutine());
     }
 
-    WaitForSeconds shootInterval = new WaitForSeconds(0.3f);
+    WaitForSeconds shootInterval = new WaitForSeconds(0.1f);
     private IEnumerator ShootRoutine()
     {
-        Vector3 dir = GameManager.Instance.curPlayer.transform.position - transform.position;
+        isAttack = true;
 
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Vector3 dir;
 
-        angle -= 90;
+        float angle = 0f;
 
         for (int i = 0; i < 5; i++)
         {
+            dir = GameManager.Instance.curPlayer.transform.position - transform.position;
+
+            angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+            angle -= 90;
+
+            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyBullet>().InitBullet(20, 0.5f, 3);
+
+            yield return shootInterval;
         }
 
-        yield return null;
+        isAttack = false;
     }
 
     private void OnDrawGizmos()
