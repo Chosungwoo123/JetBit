@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 8
-  moveSpeed: 17
+  moveSpeed: 15
   moveMultiply: 2
   maxHealth: 40
   maxAdjustmentMoveSpeed: 3

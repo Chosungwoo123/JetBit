@@ -6198,8 +6198,8 @@ MonoBehaviour:
   - {fileID: 1043162563}
   - {fileID: 587618170}
   - {fileID: 1188145783}
-  spawnTimeMin: 2
-  spawnTimeMax: 4
+  spawnTimeMin: 4
+  spawnTimeMax: 6
   enemyDatas:
   - enemyPrefab: {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
     weight: 80
