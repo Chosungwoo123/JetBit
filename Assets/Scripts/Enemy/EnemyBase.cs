@@ -161,8 +161,10 @@ public class EnemyBase : MonoBehaviour
                 Instantiate(dieEffect2, transform.position, transform.rotation);
             }
 
-            GameManager.Instance.CameraShake(30, 0.3f);
+            GameManager.Instance.CameraShake(60, 0.3f);
             GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
+            TimeManager.Instance.SlowTime(0.05f, 0.6f);
 
             // 플레이어 데미지 주기
 
