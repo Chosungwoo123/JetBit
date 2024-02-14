@@ -25,9 +25,9 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
-    public GameObject dieEffect;
-    public GameObject dieEffect2;
-
+    public GameObject[] dieEffects;
+    public GameObject smokeEffect;
+        
     #region 공격 관련 스탯
 
     [Space(10)]
@@ -40,6 +40,8 @@ public class EnemyBase : MonoBehaviour
     protected bool isAttack;
 
     protected float attackTimer;
+
+    private bool isDie;
 
     private float curHealth;
 
@@ -59,6 +61,21 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (isDie)
+        {
+            // 플레이어 쪽 말고 진행방향 쪽을 바라봄
+            if (isRotation)
+            {
+                Vector2 dir = rigid.velocity.normalized;
+
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+                transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            }
+            
+            return;
+        }
+
         RotationUpdate();
         MoveUpdate();
         AttackUpdate();
@@ -130,23 +147,37 @@ public class EnemyBase : MonoBehaviour
 
     public void OnDamage(float damage)
     {
+        if (isDie)
+        {
+            return;
+        }
+
         curHealth -= damage;
 
         if (curHealth <= 0)
         {
-            // 죽는 로직
-            Instantiate(dieEffect, transform.position, transform.rotation);
-
-            if (dieEffect2 != null)
-            {
-                Instantiate(dieEffect2, transform.position, transform.rotation);
-            }
-
-            GameManager.Instance.CameraShake(30, 0.3f);
-            GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
-
-            Destroy(gameObject);
+            StartCoroutine(DieRoutine());
         }
+    }
+
+    private IEnumerator DieRoutine()
+    {
+        smokeEffect.SetActive(true);
+        gameObject.layer = 7;
+
+        isDie = true;
+
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < dieEffects.Length; i++)
+        {
+            Instantiate(dieEffects[i], transform.position, Quaternion.identity);
+        }
+
+        GameManager.Instance.CameraShake(30, 0.3f);
+        GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -154,11 +185,9 @@ public class EnemyBase : MonoBehaviour
         if (collision.CompareTag("Player") && isSelfDestruct)
         {
             // 죽는 로직
-            Instantiate(dieEffect, transform.position, transform.rotation);
-
-            if (dieEffect2 != null)
+            for (int i = 0; i < dieEffects.Length; i++)
             {
-                Instantiate(dieEffect2, transform.position, transform.rotation);
+                Instantiate(dieEffects[i], transform.position, Quaternion.identity);
             }
 
             GameManager.Instance.CameraShake(60, 0.3f);
