@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    #region ±âº» ½ºÅÈ
+    #region ê¸°ë³¸ ìŠ¤íƒ¯
 
     [Space(10)] 
-    [Header("±âº» ½ºÅÈ °ü·Ã")]
-    public float rotSpeed;
-    public float moveSpeed;
-    public float moveMultiply;
-    public float fireRate;
-    public float dashCoolTime;
-    public float dashPower;
-    public float dashTime;
+    [Header("ê¸°ë³¸ ìŠ¤íƒ¯ ê´€ë ¨")]
+    [SerializeField] private float rotSpeed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveMultiply;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float dashCoolTime;
+    [SerializeField] private float dashPower;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float maxHealth;
 
     #endregion
 
-    #region °ÔÀÓ ¿ÀºêÁ§Æ®
+    #region ê²Œì„ ì˜¤ë¸Œì íŠ¸
 
     [Space(10)]
-    [Header("°ÔÀÓ ¿ÀºêÁ§Æ® °ü·Ã")]
+    [Header("ê²Œì„ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨")]
 
     public Transform shotPos;
 
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region »ç¿îµå
+    #region ì‚¬ìš´ë“œ
 
     public PlayerSounds sounds;
 
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
 
     private float fireTimer;
     private float dashTimer;
+    private float curHealth;
 
     private bool isMoveStop;
     private bool isDashing;
@@ -58,6 +60,8 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        curHealth = maxHealth;
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
     }
@@ -178,6 +182,16 @@ public class Player : MonoBehaviour
                                      Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
 
             rocket.InitRocket(transform.eulerAngles.z);
+        }
+    }
+
+    public void OnDamage(float damage)
+    {
+        curHealth = Mathf.Max(curHealth - damage, 0);
+
+        if (curHealth <= 0)
+        {
+            // ì£½ëŠ” ë¡œì§
         }
     }
 
