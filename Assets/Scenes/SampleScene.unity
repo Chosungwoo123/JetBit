@@ -7403,7 +7403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -144134383
   m_SortingLayer: 2
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 4f3ca6c2ba5724c4c90aee322cf79137, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7488,6 +7488,7 @@ MonoBehaviour:
   dashCoolTime: 1
   dashPower: 40
   dashTime: 0.3
+  maxHealth: 0
   shotPos: {fileID: 234797909}
   bulletPrefab: {fileID: 1304430895978535806, guid: b59170c58545bc447abbf5f77fada88d, type: 3}
   dashEffectPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
