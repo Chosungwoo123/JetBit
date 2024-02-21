@@ -22,11 +22,27 @@ public class EnemySpawner : MonoBehaviour
 
     private int total;
 
+    private List<int> enemyNumList = new List<int>();
+
     private void Start()
     {
         for (int i = 0; i < enemyDatas.Count; i++)
         {
-            total += enemyDatas[i].weight;
+            for (int j = 0; j < enemyDatas[i].weight; j++)
+            {
+                enemyNumList.Add(i);
+            }
+        }
+
+        // 리스트 셔플
+        int n = enemyNumList.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = new System.Random().Next(n);
+            var value = enemyNumList[k];
+            enemyNumList[k] = enemyNumList[n];
+            enemyNumList[n] = value;
         }
 
         spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
@@ -46,20 +62,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int weight = 0;
         int selectNum;
 
-        selectNum = Mathf.RoundToInt(total * Random.Range(0.0f, 1.0f));
+        selectNum = Random.Range(0, enemyNumList.Count);
 
-        for (int i = 0; i < enemyDatas.Count; i++)
-        {
-            weight += enemyDatas[i].weight;
-
-            if (selectNum <= weight)
-            {
-                Instantiate(enemyDatas[i].enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
-            }
-        }
+        Instantiate(enemyDatas[enemyNumList[selectNum]].enemyPrefab, 
+                    spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
 
         spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
     }
