@@ -749,7 +749,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -4840,7 +4840,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -144134383
   m_SortingLayer: 2
-  m_SortingOrder: 110
+  m_SortingOrder: 10
   m_RenderMode: 4
   m_MeshDistribution: 1
   m_SortMode: 4
@@ -4987,7 +4987,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5157,7 +5157,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.5
-      minScalar: 0.5
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5314,7 +5314,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -5367,7 +5367,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -5420,8 +5420,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 6.283185
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5472,7 +5472,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 5000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -5619,7 +5619,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.75
+      value: 0.15
       mode: 0
       spread: 0
       speed:
@@ -5738,7 +5738,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 52.31
+      scalar: 120
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6362,19 +6362,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 1157640189, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -734893442, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 1555610508, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -38285147, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 825647009, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -2131973557, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -1037468349, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 1006915828, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -951842694, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: -7999319, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 908617934, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 564728926, guid: 5824c28328e86c34385932292ede9087, type: 3}
-    - sprite: {fileID: 425402599, guid: 5824c28328e86c34385932292ede9087, type: 3}
+    - sprite: {fileID: -1003535994, guid: 802b071004f7af749962c1bf8efe5c7f, type: 3}
+    - sprite: {fileID: -262505375, guid: 802b071004f7af749962c1bf8efe5c7f, type: 3}
+    - sprite: {fileID: -414258232, guid: 802b071004f7af749962c1bf8efe5c7f, type: 3}
+    - sprite: {fileID: 1744605553, guid: 802b071004f7af749962c1bf8efe5c7f, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -9673,7 +9664,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -144134383
   m_SortingLayer: 2
-  m_SortingOrder: 100
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
