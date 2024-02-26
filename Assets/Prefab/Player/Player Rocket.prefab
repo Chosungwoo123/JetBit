@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acd41554c0c6c44a93104042f60e4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 3
+  rotSpeed: 5
   targetingRotSpeed: 50
   moveSpeed: 30
   moveMultiply: 5

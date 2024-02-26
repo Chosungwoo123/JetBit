@@ -32,6 +32,10 @@ public class PlayerRocket : MonoBehaviour
     {
         MoveUpdate();
         RotationUpdate();
+    }
+
+    private void FixedUpdate()
+    {
         CheckingTarget();
     }
 
@@ -71,13 +75,17 @@ public class PlayerRocket : MonoBehaviour
             return;
         }
 
-        var scaningTarget = Physics2D.OverlapCircle(transform.position, scanRange, targetLayer);
+        Collider2D[] scaningTarget = Physics2D.OverlapCircleAll(transform.position, scanRange, targetLayer);
 
-        if (scaningTarget != null)
+        float tempDistance = 99999f;
+
+        foreach (Collider2D temp in scaningTarget)
         {
-            target = scaningTarget.gameObject;
-            isTargeting = true;
-            return;
+            if (tempDistance > Vector2.Distance(transform.position, temp.transform.position))
+            {
+                target = temp.gameObject;
+                tempDistance = Vector2.Distance(transform.position, temp.transform.position);
+            }
         }
     }
 
