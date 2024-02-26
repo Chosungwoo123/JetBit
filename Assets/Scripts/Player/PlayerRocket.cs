@@ -45,13 +45,17 @@ public class PlayerRocket : MonoBehaviour
 
     private void RotationUpdate()
     {
-        if (target != null)
+        if (target != null && target.layer == 6)
         {
             Vector2 mouseDir = target.transform.position - transform.position;
 
             angle = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
 
             angle -= 90;
+        }
+        else
+        {
+            isTargeting = false;
         }
 
         Quaternion dirRot = Quaternion.Euler(0, 0, angle);
