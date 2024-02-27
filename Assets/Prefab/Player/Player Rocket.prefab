@@ -75,6 +75,8 @@ MonoBehaviour:
   moveMultiply: 5
   scanRange: 20
   damage: 100
+  sinMovementAmount: 0
+  sinMovementSpeed: 0
   explotionEffect: {fileID: 5816390594176525353, guid: d54e53969b3f2a243b23a5de7287c560, type: 3}
   targetLayer:
     serializedVersion: 2

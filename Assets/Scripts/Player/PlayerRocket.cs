@@ -10,11 +10,17 @@ public class PlayerRocket : MonoBehaviour
     public float moveMultiply;
     public float scanRange;
     public float damage;
+
+    [Tooltip("흐물흐물하게 움직이는 정도")]
+    public float sinMovementAmount;
+    public float sinMovementSpeed;
+
     public Effect explotionEffect;
 
     public LayerMask targetLayer;
 
     private float angle;
+    private float sinAmount;
 
     private bool isTargeting;
 
@@ -51,9 +57,9 @@ public class PlayerRocket : MonoBehaviour
     {
         if (target != null && target.layer == 6)
         {
-            Vector2 mouseDir = target.transform.position - transform.position;
+            Vector2 targetDir = target.transform.position - transform.position;
 
-            angle = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
+            angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
 
             angle -= 90;
         }
@@ -62,10 +68,16 @@ public class PlayerRocket : MonoBehaviour
             isTargeting = false;
         }
 
+        sinAmount += Time.deltaTime * (sinMovementSpeed * ((isTargeting) ? rotSpeed / targetingRotSpeed : 1));
+
         Quaternion dirRot = Quaternion.Euler(0, 0, angle);
 
         this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, 
                                                    Time.deltaTime * ((isTargeting) ? targetingRotSpeed : rotSpeed));
+
+        Quaternion sinRot = Quaternion.Euler(0, 0, transform.eulerAngles.z + (sinMovementAmount * Mathf.Sin(sinAmount)));
+
+        transform.rotation = sinRot;
     }
 
     private void CheckingTarget()
@@ -78,6 +90,11 @@ public class PlayerRocket : MonoBehaviour
         Collider2D[] scaningTarget = Physics2D.OverlapCircleAll(transform.position, scanRange, targetLayer);
 
         float tempDistance = 99999f;
+
+        if (scaningTarget != null)
+        {
+            isTargeting = true;
+        }
 
         foreach (Collider2D temp in scaningTarget)
         {
