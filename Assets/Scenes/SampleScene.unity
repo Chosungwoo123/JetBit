@@ -7623,10 +7623,12 @@ MonoBehaviour:
   dashEffectPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   trailParticle: {fileID: 446905732}
   rocketPrefab: {fileID: 4308909468905569098, guid: 45506a0a16aaf2c49b851d97b8fb711c, type: 3}
+  missilePrefab: {fileID: 7540287492041775558, guid: e95b0464957d7904da044ead52f69f8b, type: 3}
   sounds:
     shotSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
     dashSound: {fileID: 8300000, guid: 0bd05763df902854a80475577a26666a, type: 3}
     propelSound: {fileID: 8300000, guid: 8328d2d4791a90442ba426c0ab4bb30e, type: 3}
+  missileSkillCoolTime: 10
 --- !u!95 &1473466575
 Animator:
   serializedVersion: 5

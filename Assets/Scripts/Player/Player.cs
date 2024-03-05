@@ -24,26 +24,39 @@ public class Player : MonoBehaviour
     [Space(10)]
     [Header("게임 오브젝트 관련")]
 
-    public Transform shotPos;
+    [SerializeField] private Transform shotPos;
 
-    public PlayerBullet bulletPrefab;
-    public GameObject dashEffectPrefab;
+    [SerializeField] private PlayerBullet bulletPrefab;
+    [SerializeField] private GameObject dashEffectPrefab;
 
-    public ParticleSystem trailParticle;
+    [SerializeField] private ParticleSystem trailParticle;
 
-    public PlayerRocket rocketPrefab;
+    [SerializeField] private PlayerRocket rocketPrefab;
+    [SerializeField] private PlayerRocket missilePrefab;
 
     #endregion
 
     #region 사운드
 
+    [Space(10)]
+    [Header("사운드")]
     public PlayerSounds sounds;
+
+    #endregion
+
+    #region 스킬
+
+    [Space(10)]
+    [Header("스킬 관련 스탯")]
+    [SerializeField] private float missileSkillCoolTime;
+    
 
     #endregion
 
     private float fireTimer;
     private float dashTimer;
     private float curHealth;
+    private float missileSkillTimer;
 
     private bool isMoveStop;
     private bool isDashing;
@@ -62,6 +75,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         curHealth = maxHealth;
+        missileSkillTimer = 0f;
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
     }
@@ -176,12 +190,43 @@ public class Player : MonoBehaviour
 
     private void SkillUpdate()
     {
+        // 미사일 발사
         if (Input.GetKeyDown(KeyCode.E))
         {
             var rocket = Instantiate(rocketPrefab, shotPos.position, 
                                      Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
 
             rocket.InitRocket(transform.eulerAngles.z);
+        }
+
+        // 필살기(미사일 여러 발 발사)
+        if (Input.GetKeyDown(KeyCode.Q) && missileSkillTimer >= missileSkillCoolTime)
+        {
+            MissileSkill();
+            missileSkillTimer = 0;
+        }
+
+        missileSkillTimer += Time.deltaTime;
+    }
+
+    private void MissileSkill()
+    {
+        StartCoroutine(MissileSkillRoutine());
+    }
+
+    private IEnumerator MissileSkillRoutine()
+    {
+        WaitForSeconds shotInterval = new WaitForSeconds(0.05f);
+
+        for (int i = 0; i < 20; i++)
+        {
+            float randomDir = Random.Range(0, 360);
+
+            var missile = Instantiate(missilePrefab, transform.position, Quaternion.Euler(0, 0, randomDir));
+
+            missile.InitRocket(randomDir);
+
+            yield return shotInterval;
         }
     }
 
