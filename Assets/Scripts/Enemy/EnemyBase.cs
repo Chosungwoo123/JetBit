@@ -34,6 +34,7 @@ public class EnemyBase : MonoBehaviour
     [Header("공격 관련 스탯")]
     [SerializeField] protected float attackRate;
     [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected float contactDamage;
 
     #endregion
 
@@ -190,12 +191,9 @@ public class EnemyBase : MonoBehaviour
                 Instantiate(dieEffects[i], transform.position, Quaternion.identity);
             }
 
-            GameManager.Instance.CameraShake(60, 0.3f);
-            GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
-
-            TimeManager.Instance.SlowTime(0.05f, 0.6f);
-
             // 플레이어 데미지 주기
+
+            collision.GetComponent<Player>().OnDamage(contactDamage);
 
             Destroy(gameObject);
         }

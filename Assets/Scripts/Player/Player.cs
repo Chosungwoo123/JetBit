@@ -193,6 +193,13 @@ public class Player : MonoBehaviour
         {
             // 죽는 로직
         }
+
+        // 카메라 흔들기
+        GameManager.Instance.CameraShake(60, 0.3f);
+        GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+
+        // 시간 느리게
+        TimeManager.Instance.SlowTime(0.05f, 0.6f);
     }
 
     [System.Serializable]

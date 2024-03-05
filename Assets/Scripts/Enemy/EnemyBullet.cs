@@ -7,18 +7,14 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private Effect endEffect;
 
     private float moveSpeed;
-    private float lifeTime;
     private float damage;
 
     private Rigidbody2D rigid;
     private WaitForSeconds dieTime;
 
-    
-
     public void InitBullet(float speed, float lifeTime, float damage)
     {
         this.moveSpeed = speed;
-        this.lifeTime = lifeTime;
         this.damage = damage;
 
         // 변수 초기화
@@ -43,6 +39,10 @@ public class EnemyBullet : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Instantiate(endEffect, transform.position, Quaternion.identity);
+
+            // 플레이어 데미지 주기
+            collision.GetComponent<Player>().OnDamage(damage);
+
             Destroy(gameObject);
         }
     }
