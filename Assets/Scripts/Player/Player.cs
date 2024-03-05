@@ -238,6 +238,8 @@ public class Player : MonoBehaviour
     {
         curHealth = Mathf.Max(curHealth - damage, 0);
 
+        GUIManager.Instance.SetHealthAmount(curHealth / maxHealth);
+
         if (curHealth <= 0)
         {
             // 죽는 로직

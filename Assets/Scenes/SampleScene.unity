@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7777,7 +7777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8453,7 +8453,7 @@ MonoBehaviour:
   dashCoolTime: 1
   dashPower: 40
   dashTime: 0.3
-  maxHealth: 0
+  maxHealth: 100
   shotPos: {fileID: 234797909}
   bulletPrefab: {fileID: 1304430895978535806, guid: b59170c58545bc447abbf5f77fada88d, type: 3}
   dashEffectPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
@@ -9108,7 +9108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9190,6 +9190,7 @@ GameObject:
   - component: {fileID: 1790029975}
   - component: {fileID: 1790029974}
   - component: {fileID: 1790029978}
+  - component: {fileID: 1790029979}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -9292,6 +9293,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTran: {fileID: 1473466571}
+--- !u!114 &1790029979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790029973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f88d54ebecee444bb0c016bce616014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthBar:
+  - {fileID: 170916943}
+  - {fileID: 1325029878}
 --- !u!1 &1798129487
 GameObject:
   m_ObjectHideFlags: 0
@@ -9701,7 +9717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

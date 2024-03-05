@@ -4985,6 +4985,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 636727752}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 10
 --- !u!1 &3956130277836683063
 GameObject:
   m_ObjectHideFlags: 0

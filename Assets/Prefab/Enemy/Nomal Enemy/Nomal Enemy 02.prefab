@@ -9797,5 +9797,6 @@ MonoBehaviour:
   smokeEffect: {fileID: 175929371}
   attackRate: 5
   bulletPrefab: {fileID: 5465226401046430895, guid: 681232ac2089d4c4b8aaec6f6ef46fae, type: 3}
+  contactDamage: 5
   attackRange: 18
   targetingRange: 5

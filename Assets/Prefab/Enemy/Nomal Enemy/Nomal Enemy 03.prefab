@@ -14609,6 +14609,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 83821138176625506}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 4
 --- !u!1 &83821138881487405
 GameObject:
   m_ObjectHideFlags: 0
@@ -14771,6 +14772,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 83821139408739838}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 4
 --- !u!1 &83821138924006479
 GameObject:
   m_ObjectHideFlags: 0
@@ -14933,6 +14935,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 83821139383013010}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 4
 --- !u!1 &83821139058249531
 GameObject:
   m_ObjectHideFlags: 0
@@ -15016,6 +15019,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 0}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 0
 --- !u!1 &83821139065522980
 GameObject:
   m_ObjectHideFlags: 0
@@ -19990,6 +19994,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 83821139212710443}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 4
 --- !u!1 &83821139212710443
 GameObject:
   m_ObjectHideFlags: 0
@@ -44256,6 +44261,7 @@ MonoBehaviour:
   smokeEffect: {fileID: 83821139827273656}
   attackRate: 0
   bulletPrefab: {fileID: 0}
+  contactDamage: 4
 --- !u!1 &83821140007512491
 GameObject:
   m_ObjectHideFlags: 0
