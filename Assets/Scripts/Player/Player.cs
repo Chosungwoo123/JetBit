@@ -196,6 +196,8 @@ public class Player : MonoBehaviour
             var rocket = Instantiate(rocketPrefab, shotPos.position, 
                                      Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
 
+            SoundManager.Instance.PlaySound(sounds.rocketShotSound);
+
             rocket.InitRocket(transform.eulerAngles.z);
         }
 
@@ -256,5 +258,6 @@ public class Player : MonoBehaviour
         public AudioClip dashSound;
         public AudioClip propelSound;
         public AudioClip missileShotSound;
+        public AudioClip rocketShotSound;
     }
 }
