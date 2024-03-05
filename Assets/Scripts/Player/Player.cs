@@ -218,13 +218,15 @@ public class Player : MonoBehaviour
     {
         WaitForSeconds shotInterval = new WaitForSeconds(0.05f);
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 13; i++)
         {
             float randomDir = Random.Range(0, 360);
 
             var missile = Instantiate(missilePrefab, transform.position, Quaternion.Euler(0, 0, randomDir));
 
             missile.InitRocket(randomDir);
+
+            SoundManager.Instance.PlaySound(sounds.missileShotSound, 0.8f);
 
             yield return shotInterval;
         }
@@ -253,5 +255,6 @@ public class Player : MonoBehaviour
         public AudioClip shotSound;
         public AudioClip dashSound;
         public AudioClip propelSound;
+        public AudioClip missileShotSound;
     }
 }
