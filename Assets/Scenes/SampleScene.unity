@@ -8466,7 +8466,7 @@ MonoBehaviour:
     propelSound: {fileID: 8300000, guid: 8328d2d4791a90442ba426c0ab4bb30e, type: 3}
     missileShotSound: {fileID: 8300000, guid: 07e17c040baac49bfbab34e436244b01, type: 3}
     rocketShotSound: {fileID: 8300000, guid: 68b1cd0f24df06d4d93e30fb6f956d82, type: 3}
-  missileSkillCoolTime: 0
+  missileSkillCoolTime: 10
 --- !u!95 &1473466575
 Animator:
   serializedVersion: 5
