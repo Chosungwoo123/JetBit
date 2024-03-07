@@ -77,7 +77,7 @@ MonoBehaviour:
   damage: 100
   sinMovementAmount: 0
   sinMovementSpeed: 0
-  explotionEffect: {fileID: 5816390594176525353, guid: d54e53969b3f2a243b23a5de7287c560, type: 3}
+  explotionEffect: {fileID: 8516926580066757091, guid: 48646a21052a15d4ba45cc909e807be0, type: 3}
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

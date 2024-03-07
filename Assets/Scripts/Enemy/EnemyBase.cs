@@ -175,8 +175,7 @@ public class EnemyBase : MonoBehaviour
             Instantiate(dieEffects[i], transform.position, Quaternion.identity);
         }
 
-        GameManager.Instance.CameraShake(30, 0.3f);
-        GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
+        GameManager.Instance.CameraShake(30, 0.1f);
 
         Destroy(gameObject);
     }

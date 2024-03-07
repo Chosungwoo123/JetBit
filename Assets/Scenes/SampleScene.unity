@@ -7313,6 +7313,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxEffect: 0.8
   cam: {fileID: 519420028}
+--- !u!1001 &922447612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6644607869368652450, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: maxHealth
+      value: 999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652450, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652450, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: attackRate
+      value: 999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652451, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_Name
+      value: Elite Enemy 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644607869368652479, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
 --- !u!1 &961855335
 GameObject:
   m_ObjectHideFlags: 0
@@ -8466,7 +8535,7 @@ MonoBehaviour:
     propelSound: {fileID: 8300000, guid: 8328d2d4791a90442ba426c0ab4bb30e, type: 3}
     missileShotSound: {fileID: 8300000, guid: 07e17c040baac49bfbab34e436244b01, type: 3}
     rocketShotSound: {fileID: 8300000, guid: 68b1cd0f24df06d4d93e30fb6f956d82, type: 3}
-  missileSkillCoolTime: 10
+  missileSkillCoolTime: 0
 --- !u!95 &1473466575
 Animator:
   serializedVersion: 5

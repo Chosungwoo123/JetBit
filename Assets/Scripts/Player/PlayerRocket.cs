@@ -15,9 +15,11 @@ public class PlayerRocket : MonoBehaviour
     public float sinMovementAmount;
     public float sinMovementSpeed;
 
-    public Effect explotionEffect;
+    public GameObject explotionEffect;
 
     public LayerMask targetLayer;
+
+    public AudioClip explosionSound;
 
     private float angle;
     private float sinAmount;
@@ -120,8 +122,8 @@ public class PlayerRocket : MonoBehaviour
 
             Instantiate(explotionEffect, transform.position, Quaternion.identity);
 
-            GameManager.Instance.CameraShake(20, 0.3f);
-            GameManager.Instance.ShowEffectImage(0.1f, 0.5f);
+            GameManager.Instance.CameraShake(50, 0.01f);
+            SoundManager.Instance.PlaySound(explosionSound);
 
             Destroy(gameObject);
         }
