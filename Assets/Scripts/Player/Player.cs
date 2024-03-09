@@ -215,13 +215,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             moveSpeed = afterBurnerSpeed;
-            GameManager.Instance.CameraZoomInOut(17, 0.05f);
+            GameManager.Instance.CameraZoomInOut(17, 0.15f);
             GameManager.Instance.windEffect.SetActive(true);
         }
         else if(Input.GetKeyUp(KeyCode.Space))
         {
             moveSpeed = nomalSpeed;
-            GameManager.Instance.CameraZoomInOut(15, 0.05f);
+            GameManager.Instance.CameraZoomInOut(15, 0.15f);
             GameManager.Instance.windEffect.SetActive(false);
         }
 
