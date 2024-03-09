@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    #region ½Ì±ÛÅæ
+    #region ì‹±ê¸€í†¤
 
     private static GameManager instance = null;
 
@@ -24,34 +24,35 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region UI °ü·Ã ¿ÀºêÁ§Æ®
+    #region UI ê´€ë ¨ ì˜¤ë¸Œì íŠ¸
 
     [Space(10)]
-    [Header("UI °ü·Ã ¿ÀºêÁ§Æ®")]
+    [Header("UI ê´€ë ¨ ì˜¤ë¸Œì íŠ¸")]
     [SerializeField] private Image effectImage;
 
     #endregion
 
-    #region Ä«¸Ş¶ó °ü·Ã ¿ÀºêÁ§Æ®
+    #region ì¹´ë©”ë¼ ê´€ë ¨ ì˜¤ë¸Œì íŠ¸
 
     [Space(10)]
-    [Header("Ä«¸Ş¶ó °ü·Ã ¿ÀºêÁ§Æ®")]
+    [Header("ì¹´ë©”ë¼ ê´€ë ¨ ì˜¤ë¸Œì íŠ¸")]
     [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private CameraZoomInOut cameraZoom;
 
     #endregion
 
-    #region °ÔÀÓ °ü·Ã Áß¿äÇÑ ¿ÀºêÁ§Æ®
+    #region ê²Œì„ ê´€ë ¨ ì¤‘ìš”í•œ ì˜¤ë¸Œì íŠ¸
 
     [Space(10)]
-    [Header("°ÔÀÓ °ü·Ã Áß¿äÇÑ ¿ÀºêÁ§Æ®")]
+    [Header("ê²Œì„ ê´€ë ¨ ì¤‘ìš”í•œ ì˜¤ë¸Œì íŠ¸")]
     public GameObject curPlayer;
 
     #endregion
 
-    #region °ÔÀÓ °ü·Ã Áß¿äÇÑ º¯¼öµé
+    #region ê²Œì„ ê´€ë ¨ ì¤‘ìš”í•œ ë³€ìˆ˜ë“¤
 
     [Space(10)]
-    [Header("°ÔÀÓ °ü·Ã Áß¿äÇÑ º¯¼öµé")]
+    [Header("ê²Œì„ ê´€ë ¨ ì¤‘ìš”í•œ ë³€ìˆ˜ë“¤")]
     [SerializeField] private int maxFrame;
 
     #endregion
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // ÇÁ·¹ÀÓ °íÁ¤
+        // í”„ë ˆì„ ê³ ì •
         Application.targetFrameRate = maxFrame;
     }
 
@@ -94,10 +95,9 @@ public class GameManager : MonoBehaviour
     {
         if (time == 0)
         {
-            yield return null;
+            yield break;
         }
 
-        float targetAlpha = fadeAmount;
         float curAlpha = 0;
         float temp = 0;
 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         while (temp <= fadeInOutTime)
         {
-            curAlpha += Time.deltaTime * targetAlpha / fadeInOutTime;
+            curAlpha += Time.deltaTime * fadeAmount / fadeInOutTime;
 
             _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, curAlpha);
 
@@ -132,5 +132,10 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void CameraZoomInOut(float zoomAmount, float time)
+    {
+        cameraZoom.CameraZoom(zoomAmount, time);
     }
 }

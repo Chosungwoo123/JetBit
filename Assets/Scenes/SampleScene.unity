@@ -6613,6 +6613,7 @@ GameObject:
   - component: {fileID: 665163634}
   - component: {fileID: 665163636}
   - component: {fileID: 665163637}
+  - component: {fileID: 665163638}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -6699,6 +6700,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 679548fc40dcc004ab0bf98db6484377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &665163638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665163633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfa5184d98134645a61c826c2892bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &698445194
@@ -7189,6 +7202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectImage: {fileID: 342931560}
   cameraShake: {fileID: 665163637}
+  cameraZoom: {fileID: 665163638}
   curPlayer: {fileID: 1473466569}
   maxFrame: 60
 --- !u!4 &773885421
@@ -8717,7 +8731,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 4
-  moveSpeed: 22
+  nomalSpeed: 22
+  afterBurnerSpeed: 35
   moveMultiply: 3
   fireRate: 0.1
   dashCoolTime: 1

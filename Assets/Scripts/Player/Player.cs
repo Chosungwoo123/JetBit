@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     [Space(10)] 
     [Header("기본 스탯 관련")]
     [SerializeField] private float rotSpeed;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float nomalSpeed;
+    [SerializeField] private float afterBurnerSpeed;
     [SerializeField] private float moveMultiply;
     [SerializeField] private float fireRate;
     [SerializeField] private float dashCoolTime;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
     private float dashTimer;
     private float curHealth;
     private float missileSkillTimer;
+    private float moveSpeed;
 
     private bool isMoveStop;
     private bool isDashing;
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
 
         curHealth = maxHealth;
         missileSkillTimer = 0f;
+        moveSpeed = nomalSpeed;
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
     }
@@ -206,6 +209,18 @@ public class Player : MonoBehaviour
         {
             MissileSkill();
             missileSkillTimer = 0;
+        }
+
+        // 에프터버너
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            moveSpeed = afterBurnerSpeed;
+            GameManager.Instance.CameraZoomInOut(17, 0.05f);
+        }
+        else if(Input.GetKeyUp(KeyCode.Space))
+        {
+            moveSpeed = nomalSpeed;
+            GameManager.Instance.CameraZoomInOut(15, 0.05f);
         }
 
         missileSkillTimer += Time.deltaTime;
