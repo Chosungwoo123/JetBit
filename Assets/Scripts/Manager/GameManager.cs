@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [Header("게임 관련 중요한 오브젝트")]
     public GameObject curPlayer;
+    public GameObject windEffect;
 
     #endregion
 

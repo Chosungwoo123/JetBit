@@ -216,11 +216,13 @@ public class Player : MonoBehaviour
         {
             moveSpeed = afterBurnerSpeed;
             GameManager.Instance.CameraZoomInOut(17, 0.05f);
+            GameManager.Instance.windEffect.SetActive(true);
         }
         else if(Input.GetKeyUp(KeyCode.Space))
         {
             moveSpeed = nomalSpeed;
             GameManager.Instance.CameraZoomInOut(15, 0.05f);
+            GameManager.Instance.windEffect.SetActive(false);
         }
 
         missileSkillTimer += Time.deltaTime;
