@@ -13545,7 +13545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b6e880566731459c03c4421fb7137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 4
+  rotSpeed: 7
   nomalSpeed: 22
   afterBurnerSpeed: 35
   moveMultiply: 3
