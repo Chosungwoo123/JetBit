@@ -9798,5 +9798,7 @@ MonoBehaviour:
   attackRate: 5
   bulletPrefab: {fileID: 5465226401046430895, guid: 681232ac2089d4c4b8aaec6f6ef46fae, type: 3}
   contactDamage: 5
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   attackRange: 18
   targetingRange: 5

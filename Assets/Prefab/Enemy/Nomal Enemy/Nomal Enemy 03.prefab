@@ -14610,6 +14610,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 4
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &83821138881487405
 GameObject:
   m_ObjectHideFlags: 0
@@ -14773,6 +14775,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 4
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &83821138924006479
 GameObject:
   m_ObjectHideFlags: 0
@@ -14936,6 +14940,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 4
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &83821139058249531
 GameObject:
   m_ObjectHideFlags: 0
@@ -15020,6 +15026,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 0
+  hitMaterial: {fileID: 0}
+  nomalMaterial: {fileID: 0}
 --- !u!1 &83821139065522980
 GameObject:
   m_ObjectHideFlags: 0
@@ -19995,6 +20003,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 4
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &83821139212710443
 GameObject:
   m_ObjectHideFlags: 0
@@ -44262,6 +44272,8 @@ MonoBehaviour:
   attackRate: 0
   bulletPrefab: {fileID: 0}
   contactDamage: 4
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &83821140007512491
 GameObject:
   m_ObjectHideFlags: 0

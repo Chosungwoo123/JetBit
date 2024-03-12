@@ -38,6 +38,15 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
+    #region 머테리얼 관련
+
+    [Space(10)]
+    [Header("머테리얼 관련")]
+    public Material hitMaterial;
+    public Material nomalMaterial;
+
+    #endregion
+
     protected bool isAttack;
 
     protected float attackTimer;
@@ -47,6 +56,9 @@ public class EnemyBase : MonoBehaviour
     private float curHealth;
 
     private Rigidbody2D rigid;
+    private SpriteRenderer sr;
+
+    private WaitForSeconds hitDelay;
 
     private Vector2 moveVec;
 
@@ -54,10 +66,15 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        // 변수 초기화
         rigid = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+
         moveSpeed += Random.Range(maxAdjustmentMoveSpeed, maxAdjustmentMoveSpeed);
 
         curHealth = maxHealth;
+
+        hitDelay = new WaitForSeconds(0.05f);
     }
 
     protected virtual void Update()
@@ -158,7 +175,10 @@ public class EnemyBase : MonoBehaviour
         if (curHealth <= 0)
         {
             StartCoroutine(DieRoutine());
+            return;
         }
+
+        StartCoroutine(HitRoutine());
     }
 
     private IEnumerator DieRoutine()
@@ -178,6 +198,16 @@ public class EnemyBase : MonoBehaviour
         GameManager.Instance.CameraShake(30, 0.1f);
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator HitRoutine()
+    {
+        // 반짝 거리는 애니메이션
+        sr.material = hitMaterial;
+
+        yield return hitDelay;
+
+        sr.material = nomalMaterial;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
