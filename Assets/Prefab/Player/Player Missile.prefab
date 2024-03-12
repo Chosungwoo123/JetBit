@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotSpeed: 2
   targetingRotSpeed: 15
-  moveSpeed: 40
+  moveSpeed: 35
   moveMultiply: 5
   scanRange: 20
   damage: 100
