@@ -62,10 +62,12 @@ public class Player : MonoBehaviour
 
     private bool isMoveStop;
     private bool isDashing;
+    private bool isInvincibility;
 
     private Rigidbody2D rigid;
 
     private WaitForSeconds dashTimeWaitForSeconds;
+    private WaitForSeconds invincibilityTime;
 
     private Animator anim;
 
@@ -81,6 +83,7 @@ public class Player : MonoBehaviour
         moveSpeed = nomalSpeed;
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
+        invincibilityTime = new WaitForSeconds(1.5f);
     }
 
     private void Update()
@@ -167,8 +170,11 @@ public class Player : MonoBehaviour
     {
         rigid.velocity = Vector2.zero;
 
+        // 상태 변경
         isMoveStop = true;
         isDashing = true;
+        isInvincibility = true;
+
         Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
 
         SoundManager.Instance.PlaySound(sounds.dashSound);
@@ -182,6 +188,8 @@ public class Player : MonoBehaviour
 
         isMoveStop = false;
         isDashing = false;
+        isInvincibility = false;
+
         dashTimer = 0;
     }
 
@@ -251,8 +259,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    Coroutine damagedCoroutine;
     public void OnDamage(float damage)
     {
+        if (isInvincibility)
+        {
+            return;
+        }
+
         curHealth = Mathf.Max(curHealth - damage, 0);
 
         GUIManager.Instance.SetHealthAmount(curHealth / maxHealth);
@@ -262,12 +276,28 @@ public class Player : MonoBehaviour
             // 죽는 로직
         }
 
-        // 카메라 흔들기
+        // 화면 이펙트
         GameManager.Instance.CameraShake(60, 0.3f);
         GameManager.Instance.ShowEffectImage(0.15f, 0.5f);
 
         // 시간 느리게
         TimeManager.Instance.SlowTime(0.05f, 0.6f);
+
+        if (damagedCoroutine != null)
+        {
+            StopCoroutine(damagedCoroutine);
+        }
+
+        damagedCoroutine = StartCoroutine(DamagedRoutine());
+    }
+
+    private IEnumerator DamagedRoutine()
+    {
+        isInvincibility = true;
+
+        yield return invincibilityTime;
+
+        isInvincibility = false;
     }
 
     [System.Serializable]
