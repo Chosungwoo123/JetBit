@@ -8,7 +8,7 @@ public class PlayerRocket : MonoBehaviour
     public float targetingRotSpeed;
     public float moveSpeed;
     public float moveMultiply;
-    public float scanRange;
+    public float targetScanRange;
     public float damage;
 
     [Tooltip("흐물흐물하게 움직이는 정도")]
@@ -20,6 +20,9 @@ public class PlayerRocket : MonoBehaviour
     public LayerMask targetLayer;
 
     public AudioClip explosionSound;
+
+    public bool canRangeAttack;
+    public float rangeAttackScale;
 
     private float angle;
     private float sinAmount;
@@ -89,7 +92,7 @@ public class PlayerRocket : MonoBehaviour
             return;
         }
 
-        Collider2D[] scaningTarget = Physics2D.OverlapCircleAll(transform.position, scanRange, targetLayer);
+        Collider2D[] scaningTarget = Physics2D.OverlapCircleAll(transform.position, targetScanRange, targetLayer);
 
         float tempDistance = 99999f;
 
@@ -118,7 +121,25 @@ public class PlayerRocket : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyBase>().OnDamage(damage);
+            // 범위 공격
+            if (canRangeAttack)
+            {
+                var targets = Physics2D.OverlapCircleAll(transform.position, rangeAttackScale);
+
+                foreach (var target in targets)
+                {
+                    if (target.TryGetComponent<EnemyBase>(out EnemyBase enemy))
+                    {
+                        enemy.OnDamage(damage);
+                    }
+                }
+            }
+            // 단일 공격
+            else
+            {
+                collision.GetComponent<EnemyBase>().OnDamage(damage);
+            }
+
 
             Instantiate(explotionEffect, transform.position, Quaternion.identity);
 
@@ -131,8 +152,12 @@ public class PlayerRocket : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // 적 스캔 범위
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, targetScanRange);
 
-        Gizmos.DrawWireSphere(transform.position, scanRange);
+        // 광역 공격 범위
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, rangeAttackScale);
     }
 }

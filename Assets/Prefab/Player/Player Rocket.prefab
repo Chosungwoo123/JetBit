@@ -73,7 +73,7 @@ MonoBehaviour:
   targetingRotSpeed: 50
   moveSpeed: 30
   moveMultiply: 5
-  scanRange: 20
+  targetScanRange: 20
   damage: 100
   sinMovementAmount: 0
   sinMovementSpeed: 0
@@ -82,6 +82,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   explosionSound: {fileID: 8300000, guid: 3f5c01dd1e7789f45bff62bb48e39b4b, type: 3}
+  canRangeAttack: 1
+  rangeAttackScale: 3.5
 --- !u!70 &164589256
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
