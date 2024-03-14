@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{
+{   
     #region 기본 스탯
 
     [Space(10)] 
@@ -50,7 +51,16 @@ public class Player : MonoBehaviour
     [Space(10)]
     [Header("스킬 관련 스탯")]
     [SerializeField] private float missileSkillCoolTime;
-    
+
+
+    #endregion
+
+    #region UI 관련
+
+    [Space(10)]
+    [Header("UI 관련 오브젝트")]
+    [SerializeField] private GameObject missileSkillBarObj;
+    [SerializeField] private Image missileSkillGauge;
 
     #endregion
 
@@ -94,6 +104,7 @@ public class Player : MonoBehaviour
         DashUpdate();
         AnimationUpdate();
         SkillUpdate();
+        SkillUIUpdate();
     }
 
     private void RotationUpdate()
@@ -234,6 +245,20 @@ public class Player : MonoBehaviour
         }
 
         missileSkillTimer += Time.deltaTime;
+    }
+    
+    private void SkillUIUpdate()
+    {
+        if (missileSkillTimer >= missileSkillCoolTime)
+        {
+            missileSkillBarObj.SetActive(false);
+        }
+        else
+        {
+            missileSkillBarObj.SetActive(true);
+
+            missileSkillGauge.fillAmount = missileSkillTimer / missileSkillCoolTime;
+        }
     }
 
     private void MissileSkill()
