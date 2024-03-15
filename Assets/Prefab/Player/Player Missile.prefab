@@ -75,6 +75,7 @@ MonoBehaviour:
   moveMultiply: 5
   targetScanRange: 10
   damage: 100
+  lifeTime: 10
   sinMovementAmount: 10
   sinMovementSpeed: 30
   explotionEffect: {fileID: 8516926580066757091, guid: 48646a21052a15d4ba45cc909e807be0, type: 3}

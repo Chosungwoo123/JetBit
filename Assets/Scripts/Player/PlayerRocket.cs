@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class PlayerRocket : MonoBehaviour
 {
+    #region 기본 스탯
+
+    [Space(10)]
+    [Header("기본 스탯")]
     public float rotSpeed;
     public float targetingRotSpeed;
     public float moveSpeed;
     public float moveMultiply;
     public float targetScanRange;
     public float damage;
+    public float lifeTime;
 
-    [Tooltip("흐물흐물하게 움직이는 정도")]
+    #endregion
+
+    #region 사인 무브먼트
+
+    [Space(10)]
+    [Header("사인 무브먼트")]
+    [Tooltip("사인 무브먼트 강도")]
     public float sinMovementAmount;
+    [Tooltip("사인 무브먼트 스피드")]
     public float sinMovementSpeed;
+
+    #endregion
 
     public GameObject explotionEffect;
 
@@ -21,8 +35,14 @@ public class PlayerRocket : MonoBehaviour
 
     public AudioClip explosionSound;
 
+    #region 광역 공격 관련
+
+    [Space(10)]
+    [Header("광역 공격 관련")]
     public bool canRangeAttack;
     public float rangeAttackScale;
+
+    #endregion
 
     private float angle;
     private float sinAmount;
@@ -37,6 +57,8 @@ public class PlayerRocket : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+
+        StartCoroutine(DieRoutine());
     }
 
     private void Update()
@@ -148,6 +170,18 @@ public class PlayerRocket : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DieRoutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+
+        Instantiate(explotionEffect, transform.position, Quaternion.identity);
+
+        GameManager.Instance.CameraShake(50, 0.05f);
+        SoundManager.Instance.PlaySound(explosionSound);
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
