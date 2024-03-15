@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DamageNumbersPro;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyBase : MonoBehaviour
@@ -25,9 +26,15 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
+    #region 이펙트 관련
+
+    [Space(10)]
+    [Header("이펙트 관련")]
     public GameObject[] dieEffects;
     public GameObject smokeEffect;
-        
+
+    #endregion
+
     #region 공격 관련 스탯
 
     [Space(10)]
@@ -44,6 +51,14 @@ public class EnemyBase : MonoBehaviour
     [Header("머테리얼 관련")]
     public Material hitMaterial;
     public Material nomalMaterial;
+
+    #endregion
+
+    #region UI 관련
+
+    [Space(10)]
+    [Header("UI 관련")]
+    [SerializeField] private DamageNumber damagePopup;
 
     #endregion
 
@@ -178,7 +193,7 @@ public class EnemyBase : MonoBehaviour
             return;
         }
 
-        StartCoroutine(HitRoutine());
+        StartCoroutine(HitRoutine(damage));
     }
 
     private IEnumerator DieRoutine()
@@ -200,10 +215,13 @@ public class EnemyBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator HitRoutine()
+    private IEnumerator HitRoutine(float damageAmount)
     {
         // 반짝 거리는 애니메이션
         sr.material = hitMaterial;
+
+        // 데미지 팝업
+        damagePopup.Spawn(transform.position + (Vector3)Random.insideUnitCircle, damageAmount);
 
         yield return hitDelay;
 
