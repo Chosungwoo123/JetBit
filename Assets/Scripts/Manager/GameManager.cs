@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [Header("UI 관련 오브젝트")]
     [SerializeField] private Image effectImage;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     #endregion
 
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    private int curScore = 0;
+
     private void Awake()
     {
         if (instance == null)
@@ -74,6 +78,9 @@ public class GameManager : MonoBehaviour
     {
         // 프레임 고정
         Application.targetFrameRate = maxFrame;
+
+        // 변수 초기화
+        scoreText.text = curScore.ToString();
     }
 
     public void CameraShake(float intensity, float time)
@@ -138,5 +145,12 @@ public class GameManager : MonoBehaviour
     public void CameraZoomInOut(float zoomAmount, float time)
     {
         cameraZoom.CameraZoom(zoomAmount, time);
+    }
+
+    public void PlusScore(int score)
+    {
+        curScore += score;
+
+        scoreText.text = curScore.ToString();
     }
 }

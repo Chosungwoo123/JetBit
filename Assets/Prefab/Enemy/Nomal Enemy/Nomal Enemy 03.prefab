@@ -14613,6 +14613,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  dieScore: 8
 --- !u!1 &83821138881487405
 GameObject:
   m_ObjectHideFlags: 0
@@ -14779,6 +14780,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  dieScore: 8
 --- !u!1 &83821138924006479
 GameObject:
   m_ObjectHideFlags: 0
@@ -14945,6 +14947,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  dieScore: 8
 --- !u!1 &83821139058249531
 GameObject:
   m_ObjectHideFlags: 0
@@ -15032,6 +15035,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 0}
   nomalMaterial: {fileID: 0}
   damagePopup: {fileID: 0}
+  dieScore: 0
 --- !u!1 &83821139065522980
 GameObject:
   m_ObjectHideFlags: 0
@@ -20010,6 +20014,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  dieScore: 8
 --- !u!1 &83821139212710443
 GameObject:
   m_ObjectHideFlags: 0
@@ -44280,6 +44285,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  dieScore: 8
 --- !u!1 &83821140007512491
 GameObject:
   m_ObjectHideFlags: 0

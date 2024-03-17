@@ -7413,6 +7413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectImage: {fileID: 342931560}
+  scoreText: {fileID: 184019671}
   cameraShake: {fileID: 665163637}
   cameraZoom: {fileID: 665163638}
   curPlayer: {fileID: 1473466569}

@@ -62,6 +62,14 @@ public class EnemyBase : MonoBehaviour
 
     #endregion
 
+    #region 스코어
+
+    [Space(10)]
+    [Header("스코어")]
+    [SerializeField] private int dieScore;
+
+    #endregion
+
     protected bool isAttack;
 
     protected float attackTimer;
@@ -211,6 +219,7 @@ public class EnemyBase : MonoBehaviour
         }
 
         GameManager.Instance.CameraShake(30, 0.1f);
+        GameManager.Instance.PlusScore(dieScore);
 
         Destroy(gameObject);
     }
