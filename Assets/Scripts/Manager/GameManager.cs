@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -152,5 +153,7 @@ public class GameManager : MonoBehaviour
         curScore += score;
 
         scoreText.text = curScore.ToString();
+        scoreText.transform.DOScale(Vector3.one * 0.5f, 0f);
+        scoreText.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic);
     }
 }

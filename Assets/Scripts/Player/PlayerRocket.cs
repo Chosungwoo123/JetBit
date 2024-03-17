@@ -165,7 +165,7 @@ public class PlayerRocket : MonoBehaviour
 
             Instantiate(explotionEffect, transform.position, Quaternion.identity);
 
-            GameManager.Instance.CameraShake(50, 0.05f);
+            GameManager.Instance.CameraShake(30, 0.05f);
             SoundManager.Instance.PlaySound(explosionSound);
 
             Destroy(gameObject);
@@ -178,7 +178,7 @@ public class PlayerRocket : MonoBehaviour
 
         Instantiate(explotionEffect, transform.position, Quaternion.identity);
 
-        GameManager.Instance.CameraShake(50, 0.05f);
+        GameManager.Instance.CameraShake(30, 0.05f);
         SoundManager.Instance.PlaySound(explosionSound);
 
         Destroy(gameObject);
