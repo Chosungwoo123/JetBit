@@ -59,6 +59,7 @@ public class EnemyBase : MonoBehaviour
     [Space(10)]
     [Header("UI 관련")]
     [SerializeField] private DamageNumber damagePopup;
+    [SerializeField] private DamageNumber scorePopup;
 
     #endregion
 
@@ -220,6 +221,8 @@ public class EnemyBase : MonoBehaviour
 
         GameManager.Instance.CameraShake(30, 0.1f);
         GameManager.Instance.PlusScore(dieScore);
+
+        scorePopup.Spawn(transform.position, dieScore);
 
         Destroy(gameObject);
     }

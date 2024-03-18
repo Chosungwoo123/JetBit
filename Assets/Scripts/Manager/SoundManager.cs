@@ -47,12 +47,13 @@ public class SoundManager : MonoBehaviour
     {
         GameObject soundObj = PoolManager.Instance.GetGameObejct(soundEffectObj, transform.position, Quaternion.identity);
 
-        soundObj.GetComponent<AudioSource>().pitch = pitch;
-        soundObj.GetComponent<AudioSource>().volume = sfxVolume;
+        var audioSource = soundObj.GetComponent<AudioSource>();
+        audioSource.pitch = pitch;
+        audioSource.volume = sfxVolume;
 
         soundObj.SetActive(true);
 
-        soundObj.GetComponent<AudioSource>().PlayOneShot(clip);
+        audioSource.PlayOneShot(clip);
 
         StartCoroutine(StopSound(soundObj, clip.length));
     }
@@ -61,12 +62,13 @@ public class SoundManager : MonoBehaviour
     {
         GameObject soundObj = PoolManager.Instance.GetGameObejct(soundEffectObj, transform.position, Quaternion.identity);
 
-        soundObj.GetComponent<AudioSource>().pitch = 1f;
-        soundObj.GetComponent<AudioSource>().volume = sfxVolume;
+        var audioSource = soundObj.GetComponent<AudioSource>();
+        audioSource.pitch = 1f;
+        audioSource.volume = sfxVolume;
 
         soundObj.SetActive(true);
 
-        soundObj.GetComponent<AudioSource>().PlayOneShot(clip);
+        audioSource.PlayOneShot(clip);
 
         StartCoroutine(StopSound(soundObj, clip.length));
     }

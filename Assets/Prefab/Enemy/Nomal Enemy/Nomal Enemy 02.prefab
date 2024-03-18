@@ -9801,6 +9801,7 @@ MonoBehaviour:
   hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
   nomalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  scorePopup: {fileID: 159183059374064432, guid: 743f4810191dca04eb82232641895834, type: 3}
   dieScore: 18
   attackRange: 18
   targetingRange: 5
