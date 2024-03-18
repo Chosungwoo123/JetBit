@@ -6813,6 +6813,8 @@ MonoBehaviour:
     weight: 20
   - enemyPrefab: {fileID: 83821139058249531, guid: 2f724cff6d816f745852f125d2bdb82b, type: 3}
     weight: 10
+  - enemyPrefab: {fileID: 150815209688663488, guid: 1dd4a239ab396fe48b1bab8196f0778c, type: 3}
+    weight: 30
 --- !u!1 &665163633
 GameObject:
   m_ObjectHideFlags: 0
