@@ -8,6 +8,6 @@ public class FollowingPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector2.Lerp(transform.position, targetTran.position, Time.deltaTime * 10);
+        transform.position = Vector2.Lerp(transform.position, targetTran.position, Time.deltaTime * 20);
     }
 }
