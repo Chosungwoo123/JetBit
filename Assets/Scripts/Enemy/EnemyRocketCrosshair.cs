@@ -7,18 +7,15 @@ public class EnemyRocketCrosshair : MonoBehaviour
 {
     private GameObject targetObj;
     private SpriteRenderer sr;
+    private GameObject parentObj;
 
     private bool isStop;
 
-    private void Start()
-    {
-        Init();
-    }
-
-    public void Init()
+    public void Init(GameObject parent)
     {
         targetObj = GameManager.Instance.curPlayer;
         sr = GetComponent<SpriteRenderer>();
+        parentObj = parent;
 
         isStop = false;
 
@@ -30,7 +27,7 @@ public class EnemyRocketCrosshair : MonoBehaviour
 
     public void Stop()
     {
-
+        isStop = true;
     }
 
     private IEnumerator AlphaRoutine()
@@ -58,6 +55,12 @@ public class EnemyRocketCrosshair : MonoBehaviour
         if (!isStop)
         {
             transform.position = Vector2.Lerp(transform.position, targetObj.transform.position, Time.deltaTime * 20);
+        }
+
+        // 중간에 적이 죽으면 바로 파괴
+        if (parentObj == null)
+        {
+            Destroy(gameObject);
         }
     }
 }

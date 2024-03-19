@@ -8,7 +8,7 @@ public class EliteEnemy02 : EnemyBase
 
     [Space(10)]
     [Header("미사일 관련")]
-    [SerializeField] private EnemyRocketCrosshair crosshair;
+    [SerializeField] private EnemyRocketCrosshair crosshairPrefab;
 
     #endregion
 
@@ -19,6 +19,18 @@ public class EliteEnemy02 : EnemyBase
 
     private IEnumerator ShootRoutine()
     {
-        yield break;
+        isAttack = true;
+
+        var crosshair = Instantiate(crosshairPrefab);
+        crosshair.Init(gameObject);
+
+        yield return new WaitForSeconds(3f);
+
+        crosshair.Stop();
+
+        Instantiate(bulletPrefab, transform.position, Quaternion.identity)
+            .GetComponent<EliteEnemy02Rocket>().SetTargetPos(crosshair.transform.position, crosshair);
+
+        isAttack = false;
     }
 }
