@@ -52,7 +52,11 @@ public class EliteEnemy02Rocket : MonoBehaviour
 
         GameManager.Instance.CameraShake(30, 0.2f);
 
-        Destroy(crosshairObj.gameObject);
+        if (crosshairObj != null)
+        {
+            Destroy(crosshairObj.gameObject);
+        }
+        
         Destroy(gameObject);
     }
 
