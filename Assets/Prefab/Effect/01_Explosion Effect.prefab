@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9177582967859051749}
   - component: {fileID: 9177582967859051750}
   m_Layer: 0
-  m_Name: Explosion Effect
+  m_Name: 01_Explosion Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,9 +977,9 @@ ParticleSystem:
       time: 0
       countCurve:
         serializedVersion: 2
-        minMaxState: 0
+        minMaxState: 3
         scalar: 30
-        minScalar: 30
+        minScalar: 10
         maxCurve:
           serializedVersion: 2
           m_Curve:

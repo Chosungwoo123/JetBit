@@ -9792,7 +9792,7 @@ MonoBehaviour:
   isRotation: 1
   isSelfDestruct: 1
   dieEffects:
-  - {fileID: 9177582967859051751, guid: 673fa30060f8b0042a8716ba71b5c904, type: 3}
+  - {fileID: 9177582967859051751, guid: 81c987eeea4929f4aa5991c6b26818a4, type: 3}
   - {fileID: 4676480887208956008, guid: 53273fa17048e9d4f8cebe17074e2b9c, type: 3}
   smokeEffect: {fileID: 175929371}
   attackRate: 5

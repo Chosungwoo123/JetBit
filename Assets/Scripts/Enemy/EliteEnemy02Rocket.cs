@@ -41,7 +41,7 @@ public class EliteEnemy02Rocket : MonoBehaviour
     {
         for (int i = 0; i < explosionEffects.Length; i++)
         {
-            Instantiate(explosionEffects[i], transform.position, Quaternion.identity);
+            Instantiate(explosionEffects[i], transform.position, transform.rotation);
         }
 
         // 만약 플레이어가 볌위 안에 있으면 데미이 입히기
