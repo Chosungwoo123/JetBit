@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("UI 관련 오브젝트")]
     [SerializeField] private Image effectImage;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Image fadeImage;
 
     #endregion
 
@@ -77,11 +78,34 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // 페이드 인
+        StartCoroutine(FadeInRoutine());
+
         // 프레임 고정
         Application.targetFrameRate = maxFrame;
 
         // 변수 초기화
         scoreText.text = curScore.ToString();
+    }
+
+    private IEnumerator FadeInRoutine()
+    {
+        float curAlpha = 1;
+        float temp = 0;
+
+        Color fadeColor = fadeImage.color;
+
+        while (temp <= 0.5f)
+        {
+            curAlpha -= Time.deltaTime / 0.5f;
+
+            fadeColor.a = curAlpha;
+            fadeImage.color = fadeColor;
+
+            temp += Time.deltaTime;
+
+            yield return null;
+        }
     }
 
     public void CameraShake(float intensity, float time)
@@ -97,10 +121,10 @@ public class GameManager : MonoBehaviour
             StopCoroutine(effectImageRoutine);
         }
 
-        effectImageRoutine = StartCoroutine(FadeOutObject(effectImage, time, fadeAmount));
+        effectImageRoutine = StartCoroutine(FadeOutInObject(effectImage, time, fadeAmount));
     }
 
-    private IEnumerator FadeOutObject(Image _image, float time, float fadeAmount)
+    private IEnumerator FadeOutInObject(Image _image, float time, float fadeAmount)
     {
         if (time == 0)
         {
