@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     [Space(10)]
     [Header("스킬 관련 스탯")]
     [SerializeField] private float missileSkillCoolTime;
-
+    [SerializeField] private float rocketCoolTime;
 
     #endregion
 
@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     [Header("UI 관련 오브젝트")]
     [SerializeField] private GameObject missileSkillBarObj;
     [SerializeField] private Image missileSkillGauge;
+    [SerializeField] private Image[] rocketImage;
 
     #endregion
 
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
     private float curHealth;
     private float missileSkillTimer;
     private float moveSpeed;
+    private float rocketAmount;
 
     private bool isMoveStop;
     private bool isDashing;
@@ -85,11 +87,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        // 변수 초기화
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         curHealth = maxHealth;
         missileSkillTimer = 0f;
+        rocketAmount = 0f;
         moveSpeed = nomalSpeed;
 
         dashTimeWaitForSeconds = new WaitForSeconds(dashTime);
@@ -213,7 +217,7 @@ public class Player : MonoBehaviour
     private void SkillUpdate()
     {
         // 미사일 발사
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && rocketAmount >= 1)
         {
             var rocket = Instantiate(rocketPrefab, shotPos.position, 
                                      Quaternion.Euler(0, 0, transform.eulerAngles.z + Random.Range(-90, 90)));
@@ -221,6 +225,8 @@ public class Player : MonoBehaviour
             SoundManager.Instance.PlaySound(sounds.rocketShotSound);
 
             rocket.InitRocket(transform.eulerAngles.z);
+
+            rocketAmount -= 1;
         }
 
         // 필살기(미사일 여러 발 발사)
@@ -249,6 +255,7 @@ public class Player : MonoBehaviour
     
     private void SkillUIUpdate()
     {
+        // 미사일 스킬 쿨타임 표시
         if (missileSkillTimer >= missileSkillCoolTime)
         {
             missileSkillBarObj.SetActive(false);
@@ -258,6 +265,14 @@ public class Player : MonoBehaviour
             missileSkillBarObj.SetActive(true);
 
             missileSkillGauge.fillAmount = missileSkillTimer / missileSkillCoolTime;
+        }
+
+        // 로켓 사용 가능 횟수 표시
+        rocketAmount = Mathf.Clamp(rocketAmount + (Time.deltaTime / rocketCoolTime), 0, 4);
+
+        for (int i = 0; i < 4; i++)
+        {
+            rocketImage[i].fillAmount = rocketAmount - i;
         }
     }
 
