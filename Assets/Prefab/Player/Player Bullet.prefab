@@ -103,6 +103,7 @@ MonoBehaviour:
   lifeTime: 1
   damage: 10
   endEffect: {fileID: 498065399218678637, guid: 2d647c78dddf6654185bee6584b15211, type: 3}
+  hitSound: {fileID: 8300000, guid: 07e17c040baac49bfbab34e436244b01, type: 3}
 --- !u!61 &1304430895978535805
 BoxCollider2D:
   m_ObjectHideFlags: 0

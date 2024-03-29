@@ -8,6 +8,7 @@ public class PlayerBullet : MonoBehaviour
     public float lifeTime;
     public float damage;
     public GameObject endEffect;
+    public AudioClip hitSound;
 
     private Rigidbody2D rigid;
     private WaitForSeconds dieTime;
@@ -39,6 +40,7 @@ public class PlayerBullet : MonoBehaviour
         {
             collision.GetComponent<EnemyBase>().OnDamage(damage);
             Instantiate(endEffect, transform.position, Quaternion.identity);
+            SoundManager.Instance.PlaySound(hitSound);
             Destroy(gameObject);
         }
     }
