@@ -7573,6 +7573,7 @@ MonoBehaviour:
   curPlayer: {fileID: 1473466569}
   windEffect: {fileID: 1010065196}
   maxFrame: 60
+  bgm: {fileID: 8300000, guid: 2c7c602afc6dc4f388314da1b18f3084, type: 3}
 --- !u!4 &773885421
 Transform:
   m_ObjectHideFlags: 0

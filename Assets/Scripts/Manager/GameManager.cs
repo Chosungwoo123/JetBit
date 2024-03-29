@@ -62,6 +62,14 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region 사운드 관련 변수
+
+    [Space(10)]
+    [Header("사운드 관련 변수")]
+    [SerializeField] private AudioClip bgm;
+
+    #endregion
+
     private int curScore = 0;
 
     private void Awake()
@@ -86,6 +94,9 @@ public class GameManager : MonoBehaviour
 
         // 변수 초기화
         scoreText.text = curScore.ToString();
+
+        // BGM 틀기
+        SoundManager.Instance.PlayMusic(bgm);
     }
 
     private IEnumerator FadeInRoutine()
