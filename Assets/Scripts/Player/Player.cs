@@ -323,6 +323,9 @@ public class Player : MonoBehaviour
         // 시간 느리게
         TimeManager.Instance.SlowTime(0.05f, 0.6f);
 
+        // 사운드
+        SoundManager.Instance.PlaySound(sounds.hitSound);
+
         if (damagedCoroutine != null)
         {
             StopCoroutine(damagedCoroutine);
@@ -348,5 +351,6 @@ public class Player : MonoBehaviour
         public AudioClip propelSound;
         public AudioClip missileShotSound;
         public AudioClip rocketShotSound;
+        public AudioClip hitSound;
     }
 }
