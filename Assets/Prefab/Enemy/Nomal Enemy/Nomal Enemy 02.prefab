@@ -9783,6 +9783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc39cdcfd545f4a97cd6099fa92536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 2d3d83adead00db4386c77f162720488, type: 2}
   rotSpeed: 16
   moveSpeed: 17
   moveMultiply: 2

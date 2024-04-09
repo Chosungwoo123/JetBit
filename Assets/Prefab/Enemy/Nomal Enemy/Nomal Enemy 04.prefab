@@ -4960,6 +4960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc1d238df199544cad41522a57525ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: bcfd910d28ec1f0478bf9799cd993a0a, type: 2}
   rotSpeed: 8
   moveSpeed: 15
   moveMultiply: 2

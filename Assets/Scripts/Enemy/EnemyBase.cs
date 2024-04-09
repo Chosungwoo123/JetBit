@@ -6,68 +6,13 @@ using DamageNumbersPro;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyBase : MonoBehaviour
 {
-    #region 기본 스탯
-
-    [Space(10)]
-    [Header("기본 스탯")]
-    [SerializeField] private float rotSpeed;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float moveMultiply;
-    [SerializeField] private float maxHealth;
-
-    [SerializeField] private int maxAdjustmentMoveSpeed;
-    [SerializeField] private int minAdjustmentMoveSpeed;
-    
-    [Tooltip("플레이어 쪽을 바라보는지 체크하는 변수")]
-    [SerializeField] private bool isRotation;
-
-    [Tooltip("플레이어에 닿으면 자폭하는지 체크하는 변수")]
-    [SerializeField] private bool isSelfDestruct;
-
-    #endregion
+    public EnemyDetails enemyDetails;
 
     #region 이펙트 관련
 
     [Space(10)]
     [Header("이펙트 관련")]
-    public GameObject[] dieEffects;
     public GameObject smokeEffect;
-
-    #endregion
-
-    #region 공격 관련 스탯
-
-    [Space(10)]
-    [Header("공격 관련 스탯")]
-    [SerializeField] protected float attackRate;
-    [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] protected float contactDamage;
-
-    #endregion
-
-    #region 머테리얼 관련
-
-    [Space(10)]
-    [Header("머테리얼 관련")]
-    public Material hitMaterial;
-    public Material nomalMaterial;
-
-    #endregion
-
-    #region UI 관련
-
-    [Space(10)]
-    [Header("UI 관련")]
-    [SerializeField] private DamageNumber damagePopup;
-    [SerializeField] private DamageNumber scorePopup;
-
-    #endregion
-
-    #region 스코어
-
-    [Space(10)]
-    [Header("스코어")]
-    [SerializeField] private int dieScore;
 
     #endregion
 
@@ -77,6 +22,7 @@ public class EnemyBase : MonoBehaviour
 
     private bool isDie;
 
+    private float moveSpeed;
     private float curHealth;
 
     private Rigidbody2D rigid;
@@ -94,9 +40,10 @@ public class EnemyBase : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
-        moveSpeed += Random.Range(maxAdjustmentMoveSpeed, maxAdjustmentMoveSpeed);
+        moveSpeed = enemyDetails.moveSpeed;
+        moveSpeed += Random.Range(enemyDetails.maxAdjustmentMoveSpeed, enemyDetails.maxAdjustmentMoveSpeed);
 
-        curHealth = maxHealth;
+        curHealth = enemyDetails.maxHealth;
 
         hitDelay = new WaitForSeconds(0.05f);
     }
@@ -106,7 +53,7 @@ public class EnemyBase : MonoBehaviour
         if (isDie)
         {
             // 플레이어 쪽 말고 진행방향 쪽을 바라봄
-            if (isRotation)
+            if (enemyDetails.isRotation)
             {
                 Vector2 dir = rigid.velocity.normalized;
 
@@ -127,7 +74,7 @@ public class EnemyBase : MonoBehaviour
     private void RotationUpdate()
     {
         // 플레이어 방향 바라보기
-        if (!isRotation)
+        if (!enemyDetails.isRotation)
         {
             return;
         }
@@ -138,15 +85,15 @@ public class EnemyBase : MonoBehaviour
 
         Quaternion dirRot = Quaternion.Euler(0, 0, angle - 90);
 
-        this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, Time.deltaTime * rotSpeed);
+        this.transform.rotation = Quaternion.Slerp(transform.rotation, dirRot, Time.deltaTime * enemyDetails.rotSpeed);
     }
 
     private void MoveUpdate()
     {
-        if (isRotation)
+        if (enemyDetails.isRotation)
         {
-            moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * moveMultiply);
-            moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * moveMultiply);
+            moveVec.x = Mathf.Lerp(rigid.velocity.x, transform.up.x * moveSpeed, Time.deltaTime * enemyDetails.moveMultiply);
+            moveVec.y = Mathf.Lerp(rigid.velocity.y, transform.up.y * moveSpeed, Time.deltaTime * enemyDetails.moveMultiply);
         }
         else
         {
@@ -154,8 +101,8 @@ public class EnemyBase : MonoBehaviour
 
             dir.Normalize();
 
-            moveVec.x = Mathf.Lerp(rigid.velocity.x, dir.x * moveSpeed, Time.deltaTime * moveMultiply);
-            moveVec.y = Mathf.Lerp(rigid.velocity.y, dir.y * moveSpeed, Time.deltaTime * moveMultiply);
+            moveVec.x = Mathf.Lerp(rigid.velocity.x, dir.x * moveSpeed, Time.deltaTime * enemyDetails.moveMultiply);
+            moveVec.y = Mathf.Lerp(rigid.velocity.y, dir.y * moveSpeed, Time.deltaTime * enemyDetails.moveMultiply);
         }
 
         rigid.velocity = moveVec;
@@ -168,7 +115,7 @@ public class EnemyBase : MonoBehaviour
             return;
         }
 
-        if (attackTimer >= attackRate && !isAttack)
+        if (attackTimer >= enemyDetails.attackRate && !isAttack)
         {
             ShootBullet();
             attackTimer = 0;
@@ -214,15 +161,15 @@ public class EnemyBase : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        for (int i = 0; i < dieEffects.Length; i++)
+        for (int i = 0; i < enemyDetails.dieEffects.Length; i++)
         {
-            Instantiate(dieEffects[i], transform.position, Quaternion.identity);
+            Instantiate(enemyDetails.dieEffects[i], transform.position, Quaternion.identity);
         }
 
         GameManager.Instance.CameraShake(30, 0.1f);
-        GameManager.Instance.PlusScore(dieScore);
+        GameManager.Instance.PlusScore(enemyDetails.dieScore);
 
-        scorePopup.Spawn(transform.position, dieScore);
+        enemyDetails.scorePopup.Spawn(transform.position, enemyDetails.dieScore);
 
         Destroy(gameObject);
     }
@@ -230,29 +177,29 @@ public class EnemyBase : MonoBehaviour
     private IEnumerator HitRoutine(float damageAmount)
     {
         // 반짝 거리는 애니메이션
-        sr.material = hitMaterial;
+        sr.material = enemyDetails.hitMaterial;
 
         // 데미지 팝업
-        damagePopup.Spawn(transform.position + (Vector3)Random.insideUnitCircle, damageAmount);
+        enemyDetails.damagePopup.Spawn(transform.position + (Vector3)Random.insideUnitCircle, damageAmount);
 
         yield return hitDelay;
 
-        sr.material = nomalMaterial;
+        sr.material = enemyDetails.nomalMaterial;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && isSelfDestruct)
+        if (collision.CompareTag("Player") && enemyDetails.isSelfDestruct)
         {
             // 죽는 로직
-            for (int i = 0; i < dieEffects.Length; i++)
+            for (int i = 0; i < enemyDetails.dieEffects.Length; i++)
             {
-                Instantiate(dieEffects[i], transform.position, Quaternion.identity);
+                Instantiate(enemyDetails.dieEffects[i], transform.position, Quaternion.identity);
             }
 
             // 플레이어 데미지 주기
 
-            collision.GetComponent<Player>().OnDamage(contactDamage);
+            collision.GetComponent<Player>().OnDamage(enemyDetails.contactDamage);
 
             Destroy(gameObject);
         }

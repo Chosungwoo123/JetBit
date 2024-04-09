@@ -76,7 +76,7 @@ public class NomalEnemy02 : EnemyBase
             return;
         }
 
-        if (canAttack && attackTimer >= attackRate && !isAttack)
+        if (canAttack && attackTimer >= enemyDetails.attackRate && !isAttack)
         {
             ShootBullet();
             attackTimer = 0;
@@ -107,7 +107,7 @@ public class NomalEnemy02 : EnemyBase
 
             angle -= 90;
 
-            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyBullet>().InitBullet(30, 0.5f, 3);
+            Instantiate(enemyDetails.bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyBullet>().InitBullet(30, 0.5f, 3);
 
             yield return shootInterval;
         }

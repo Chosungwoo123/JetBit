@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e7d7edd8f22fa41864e6bbec62e1d8, type: 3}
+  m_Name: EnemyDetails_Nomal 02
+  m_EditorClassIdentifier: 
+  rotSpeed: 16
+  moveSpeed: 17
+  moveMultiply: 2
+  maxHealth: 40
+  maxAdjustmentMoveSpeed: 3
+  minAdjustmentMoveSpeed: 3
+  isRotation: 1
+  isSelfDestruct: 1
+  dieEffects:
+  - {fileID: 9177582967859051751, guid: 81c987eeea4929f4aa5991c6b26818a4, type: 3}
+  - {fileID: 4676480887208956008, guid: 53273fa17048e9d4f8cebe17074e2b9c, type: 3}
+  attackRate: 5
+  bulletPrefab: {fileID: 5465226401046430895, guid: 681232ac2089d4c4b8aaec6f6ef46fae, type: 3}
+  contactDamage: 5
+  hitMaterial: {fileID: 2100000, guid: 6bab75f42f3d01a419161a85792aac30, type: 2}
+  nomalMaterial: {fileID: 2100000, guid: d6d323adc7381704ca705a0250cddc3d, type: 2}
+  damagePopup: {fileID: 4210278498468720111, guid: 2937b5e54196dc149993bd98ea66c724, type: 3}
+  scorePopup: {fileID: 159183059374064432, guid: 743f4810191dca04eb82232641895834, type: 3}
+  dieScore: 18

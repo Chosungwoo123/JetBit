@@ -14595,6 +14595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 414dfefc7d5a5964d8c83f98a7b0eed0, type: 2}
   rotSpeed: 0
   moveSpeed: 0
   moveMultiply: 0
@@ -14763,6 +14764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 414dfefc7d5a5964d8c83f98a7b0eed0, type: 2}
   rotSpeed: 0
   moveSpeed: 0
   moveMultiply: 0
@@ -14931,6 +14933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 414dfefc7d5a5964d8c83f98a7b0eed0, type: 2}
   rotSpeed: 0
   moveSpeed: 0
   moveMultiply: 0
@@ -15022,6 +15025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d87658b2fb62744f8de8fee844b99cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 0ca660fcb31d37f40b9b9e6f58277f0e, type: 2}
   rotSpeed: 0.5
   moveSpeed: 20
   moveMultiply: 5
@@ -20000,6 +20004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 414dfefc7d5a5964d8c83f98a7b0eed0, type: 2}
   rotSpeed: 0
   moveSpeed: 0
   moveMultiply: 0
@@ -44272,6 +44277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffed188ab6b882e4fb4b1b0064047581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 414dfefc7d5a5964d8c83f98a7b0eed0, type: 2}
   rotSpeed: 0
   moveSpeed: 0
   moveMultiply: 0

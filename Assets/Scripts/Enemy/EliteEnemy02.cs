@@ -28,7 +28,7 @@ public class EliteEnemy02 : EnemyBase
 
         crosshair.Stop();
 
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity)
+        Instantiate(enemyDetails.bulletPrefab, transform.position, Quaternion.identity)
             .GetComponent<EliteEnemy02Rocket>().SetTargetPos(crosshair.transform.position, crosshair);
 
         isAttack = false;
