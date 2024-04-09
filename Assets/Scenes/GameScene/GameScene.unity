@@ -14577,6 +14577,18 @@ MonoBehaviour:
   poolArray:
   - poolSize: 100
     prefab: {fileID: 6262436944997683953, guid: 89a0042ca6d56e44d98d56ad726777cd, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 3956130277182046823, guid: 57d17ff49eb561c4f8ed9eca77299ee9, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 8775058312239020295, guid: 05a9d663c1530e44098ca0445ac19733, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 83821139058249531, guid: 2f724cff6d816f745852f125d2bdb82b, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 150815209688663488, guid: 1dd4a239ab396fe48b1bab8196f0778c, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 6644607869368652451, guid: b575f30c4e24e7c4297aba4a26d7ed29, type: 3}
+  - poolSize: 50
+    prefab: {fileID: 131109459007792479, guid: 086ee606b7286b945bf49aeee33e6dfc, type: 3}
 --- !u!4 &1640100142
 Transform:
   m_ObjectHideFlags: 0

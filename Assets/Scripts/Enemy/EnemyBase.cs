@@ -43,9 +43,14 @@ public class EnemyBase : MonoBehaviour
         moveSpeed = enemyDetails.moveSpeed;
         moveSpeed += Random.Range(enemyDetails.maxAdjustmentMoveSpeed, enemyDetails.maxAdjustmentMoveSpeed);
 
-        curHealth = enemyDetails.maxHealth;
-
         hitDelay = new WaitForSeconds(0.05f);
+    }
+
+    private void OnEnable()
+    {
+        // 오브젝트 풀에서 꺠어날때 초기화
+        curHealth = enemyDetails.maxHealth;
+        isDie = false;
     }
 
     protected virtual void Update()
@@ -166,12 +171,13 @@ public class EnemyBase : MonoBehaviour
             Instantiate(enemyDetails.dieEffects[i], transform.position, Quaternion.identity);
         }
 
+        // 스코어 플러스, 이펙트
         GameManager.Instance.CameraShake(30, 0.1f);
         GameManager.Instance.PlusScore(enemyDetails.dieScore);
 
         enemyDetails.scorePopup.Spawn(transform.position, enemyDetails.dieScore);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator HitRoutine(float damageAmount)

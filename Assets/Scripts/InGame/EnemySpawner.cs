@@ -66,8 +66,10 @@ public class EnemySpawner : MonoBehaviour
 
         selectNum = Random.Range(0, enemyNumList.Count);
 
-        Instantiate(enemyDatas[enemyNumList[selectNum]].enemyPrefab, 
-                    spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        PoolManager.Instance.GetGameObejct(enemyDatas[enemyNumList[selectNum]].enemyPrefab,
+                                           spawnPoints[Random.Range(0, spawnPoints.Length)].position, 
+                                           Quaternion.identity).
+                                           SetActive(true);
 
         spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
     }

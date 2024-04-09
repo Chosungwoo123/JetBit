@@ -85,6 +85,8 @@ public class Player : MonoBehaviour
 
     private Vector2 moveVec;
 
+    private readonly int Rotation_Hash = Animator.StringToHash("Rotation");
+
     private void Start()
     {
         // 변수 초기화
@@ -210,7 +212,7 @@ public class Player : MonoBehaviour
 
     private void AnimationUpdate()
     {
-        anim.SetFloat("Rotation", Mathf.Abs((transform.eulerAngles.z > 180) ? 180 -
+        anim.SetFloat(Rotation_Hash, Mathf.Abs((transform.eulerAngles.z > 180) ? 180 -
                                             (transform.eulerAngles.z - 180) : transform.eulerAngles.z));
     }
 

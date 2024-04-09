@@ -18,7 +18,7 @@ MonoBehaviour:
   maxHealth: 9999
   maxAdjustmentMoveSpeed: 0
   minAdjustmentMoveSpeed: 0
-  isRotation: 0
+  isRotation: 1
   isSelfDestruct: 0
   dieEffects: []
   attackRate: 0
