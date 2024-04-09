@@ -14131,7 +14131,7 @@ MonoBehaviour:
     rocketShotSound: {fileID: 8300000, guid: 68b1cd0f24df06d4d93e30fb6f956d82, type: 3}
     hitSound: {fileID: 8300000, guid: e2ef13590109348d19c2566f7381c2f5, type: 3}
   missileSkillCoolTime: 10
-  rocketCoolTime: 3
+  rocketCoolTime: 6
   missileSkillBarObj: {fileID: 1310742747}
   missileSkillGauge: {fileID: 433837218}
   rocketImage:

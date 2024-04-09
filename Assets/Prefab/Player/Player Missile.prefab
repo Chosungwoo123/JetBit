@@ -74,7 +74,7 @@ MonoBehaviour:
   moveSpeed: 35
   moveMultiply: 5
   targetScanRange: 10
-  damage: 100
+  damage: 12
   lifeTime: 10
   sinMovementAmount: 10
   sinMovementSpeed: 30
